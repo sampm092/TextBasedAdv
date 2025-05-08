@@ -10,6 +10,9 @@ namespace Out
             Console.WriteLine("Tanpa basa-basi, sesuatu datang ke arahmu dengan ujud memberikanmu celaka.");
             Console.WriteLine("Kamu tidak memiliki pilihan selain membela diri.");
             Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("Goblin");
+            Combat(false, "Goblin", 1, 4);
         }
 
         public static void Combat(bool random, string name, int power, int health)
@@ -31,39 +34,102 @@ namespace Out
 
             while (h > 0)
             {
+                Console.WriteLine(n + " memiliki sisa " + h + " poin darah. \n");
                 Console.WriteLine("==========================");
                 Console.WriteLine("|     [A-ttack] [D-efend]  |");
                 Console.WriteLine("|     [P-otion] [R-un]     |");
                 Console.WriteLine("==========================");
-                Console.WriteLine("You have " + Program.player.health + " health left.");
-                Console.WriteLine("You have " + Program.player.potion + " potions left.");
+                Console.WriteLine("Kamu memiliki " + Program.player.health + " poin darah.");
+                Console.WriteLine("Kamu memiliki " + Program.player.potion + " sisa potion.");
+                Console.WriteLine("Pilih aksi : ");
                 String tempCommand = Console.ReadLine();
                 if (tempCommand.ToLower() == "a" || tempCommand.ToLower() == "attack")
                 //Attack Command
                 {
-                    int pDamageValue = p - Program.player.defenseValue;
-                    int pAttack = rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1+Program.player.attackValue);
+                    Console.Clear();
                     Console.WriteLine("Sebilah pedang di tangan, kamu mengayunkannya ke arah " + n + " dan dia menyerang balik");
+                    int pDamageValue = p - Program.player.defenseValue;
+                    if (pDamageValue < 0)
+                    {
+                        pDamageValue = 0;
+                    }
+                    int pAttack = rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue);
                     Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah");
-                    Program.player.health =- pDamageValue;
-                    h =- pAttack;
+                    Program.player.health -= pDamageValue;
+                    h -= pAttack;
                 }
                 else if (tempCommand.ToLower() == "d" || tempCommand.ToLower() == "defend")
                 //Defend Command
                 {
+                    Console.Clear();
+                    Console.WriteLine("Kamu melihat " + n + " bersiap menyerangmu, dengan segera kamu bersiaga dan memposisikan diri untuk bertahan.");
+                    int pDamageValue = (p / 3) - Program.player.defenseValue;
+                    if (pDamageValue < 0)
+                    {
+                        pDamageValue = 0;
+                    }
+                    int pAttack = (rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue)) / 2; //maybe error
+                    pAttack = (int)Math.Ceiling((double)pAttack); //maybe error
+                    Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah");
+                    Program.player.health -= pDamageValue;
+                    h -= pAttack;
 
                 }
                 else if (tempCommand.ToLower() == "p" || tempCommand.ToLower() == "potion")
                 //Potion Command
                 {
+                    Console.Clear();
+                    if (Program.player.potion == 0)
+                    {
+                        Console.WriteLine("Kamu kehabisan potion untuk digunakan dan " + n + "berkesempatan untuk menyerangmu yang sedang kebingungan");
+                        int pDamageValue = p;
 
+                        Program.player.health -= pDamageValue;
+                        Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah");
+                    }
+                    else
+                    { //maybe error
+                        Console.WriteLine("Kamu mengambil sebuah potion dan segera menggunakannya");
+                        int heal = 10;
+                        Console.WriteLine("Kamu mendapatkan " + heal + " poin darah");
+                        if (Program.player.health == heal)
+                        {
+                            heal = 0;
+                        }
+                        else if (Program.player.health < heal)
+                        {
+                            heal -= Program.player.health;
+                        }
+
+                        Program.player.health += heal;
+
+
+                    }
                 }
                 else if (tempCommand.ToLower() == "r" || tempCommand.ToLower() == "run")
                 //Run Command
                 {
+                    if (rand.Next(0, 2) == 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kamu tidak menemukan celah dan " + n + " menyerangmu!");
+                        int pDamageValue = (int)Math.Ceiling((double)p * (3 / 2)); //maybe error
 
+                        Program.player.health -= pDamageValue;
+                        Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!");
+                        Console.ReadKey();
+                        //ke town
+                    }
                 }
                 Console.ReadKey();
+                Console.Clear();
 
             }
         }

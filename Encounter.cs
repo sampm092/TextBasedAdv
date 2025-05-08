@@ -12,7 +12,7 @@ namespace Out
             Console.ReadKey();
             Console.Clear();
             Console.WriteLine("Goblin");
-            Combat(false, "Goblin", 1, 4);
+            Combat(false, "Goblin", 2, 4);
         }
 
         public static void Combat(bool random, string name, int power, int health)
@@ -91,7 +91,6 @@ namespace Out
                     { //maybe error
                         Console.WriteLine("Kamu mengambil sebuah potion dan segera menggunakannya");
                         int heal = 10;
-                        Console.WriteLine("Kamu mendapatkan " + heal + " poin darah");
                         if (Program.player.health == heal)
                         {
                             heal = 0;
@@ -100,8 +99,20 @@ namespace Out
                         {
                             heal -= Program.player.health;
                         }
+                        else if (heal < Program.player.health){
+                            if (Program.player.maxHealth - Program.player.health < heal)
+                            {
+                            heal = Program.player.maxHealth - Program.player.health; 
+                            } 
+                            else
+                            {
+                                heal = 10;
+                            }
+                        }
 
+                        Console.WriteLine("Kamu mendapatkan " + heal + " poin darah");
                         Program.player.health += heal;
+                        Program.player.potion -= 1;
 
 
                     }
@@ -117,14 +128,11 @@ namespace Out
 
                         Program.player.health -= pDamageValue;
                         Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah");
-                        Console.ReadKey();
-                        Console.Clear();
                     }
                     else
                     {
                         Console.Clear();
                         Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!");
-                        Console.ReadKey();
                         //ke town
                     }
                 }

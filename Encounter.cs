@@ -11,8 +11,8 @@ namespace Out
             Console.WriteLine("Kamu tidak memiliki pilihan selain membela diri.");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("Goblin");
-            Combat(false, "Goblin", 2, 4);
+            Combat(false, "Goblin", 1, 4);
+            Console.WriteLine("Kamu mengalahkan monsternya");
         }
 
         public static void Combat(bool random, string name, int power, int health)
@@ -34,6 +34,7 @@ namespace Out
 
             while (h > 0)
             {
+                Console.WriteLine("~~  " + n + "  ~~");
                 Console.WriteLine(n + " memiliki sisa " + h + " poin darah. \n");
                 Console.WriteLine("==========================");
                 Console.WriteLine("|     [A-ttack] [D-efend]  |");
@@ -42,11 +43,10 @@ namespace Out
                 Console.WriteLine("Kamu memiliki " + Program.player.health + " poin darah.");
                 Console.WriteLine("Kamu memiliki " + Program.player.potion + " sisa potion.");
                 Console.WriteLine("Pilih aksi : ");
-                String tempCommand = Console.ReadLine();
+                String tempCommand = Console.ReadLine() ?? string.Empty;
                 if (tempCommand.ToLower() == "a" || tempCommand.ToLower() == "attack")
                 //Attack Command
                 {
-                    Console.Clear();
                     Console.WriteLine("Sebilah pedang di tangan, kamu mengayunkannya ke arah " + n + " dan dia menyerang balik");
                     int pDamageValue = p - Program.player.defenseValue;
                     if (pDamageValue < 0)
@@ -61,7 +61,7 @@ namespace Out
                 else if (tempCommand.ToLower() == "d" || tempCommand.ToLower() == "defend")
                 //Defend Command
                 {
-                    Console.Clear();
+
                     Console.WriteLine("Kamu melihat " + n + " bersiap menyerangmu, dengan segera kamu bersiaga dan memposisikan diri untuk bertahan.");
                     int pDamageValue = (p / 3) - Program.player.defenseValue;
                     if (pDamageValue < 0)
@@ -78,7 +78,7 @@ namespace Out
                 else if (tempCommand.ToLower() == "p" || tempCommand.ToLower() == "potion")
                 //Potion Command
                 {
-                    Console.Clear();
+
                     if (Program.player.potion == 0)
                     {
                         Console.WriteLine("Kamu kehabisan potion untuk digunakan dan " + n + "berkesempatan untuk menyerangmu yang sedang kebingungan");
@@ -99,11 +99,12 @@ namespace Out
                         {
                             heal -= Program.player.health;
                         }
-                        else if (heal < Program.player.health){
+                        else if (heal < Program.player.health)
+                        {
                             if (Program.player.maxHealth - Program.player.health < heal)
                             {
-                            heal = Program.player.maxHealth - Program.player.health; 
-                            } 
+                                heal = Program.player.maxHealth - Program.player.health;
+                            }
                             else
                             {
                                 heal = 10;
@@ -113,7 +114,13 @@ namespace Out
                         Console.WriteLine("Kamu mendapatkan " + heal + " poin darah");
                         Program.player.health += heal;
                         Program.player.potion -= 1;
-
+                        int pDamageValue = rand.Next(0, p + 1) - Program.player.defenseValue;
+                        if (pDamageValue < 0)
+                        {
+                            pDamageValue = 0;
+                        }
+                        Console.WriteLine(n + " menyerangmu setelah meminum potion dan memberikan " + pDamageValue + " poin serangan");
+                        Program.player.health -= pDamageValue;
 
                     }
                 }
@@ -122,7 +129,7 @@ namespace Out
                 {
                     if (rand.Next(0, 2) == 0)
                     {
-                        Console.Clear();
+
                         Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kamu tidak menemukan celah dan " + n + " menyerangmu!");
                         int pDamageValue = (int)Math.Ceiling((double)p * (3 / 2)); //maybe error
 
@@ -131,7 +138,7 @@ namespace Out
                     }
                     else
                     {
-                        Console.Clear();
+
                         Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!");
                         //ke town
                     }

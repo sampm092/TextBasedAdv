@@ -13,6 +13,7 @@ namespace Out
             Console.Clear();
             Combat(false, "Goblin", 1, 4);
             Console.WriteLine("Kamu mengalahkan monsternya");
+            Console.ReadKey();
         }
 
         public static void Combat(bool random, string name, int power, int health)
@@ -34,14 +35,17 @@ namespace Out
 
             while (h > 0)
             {
-                Console.WriteLine("~~  " + n + "  ~~");
-                Console.WriteLine(n + " memiliki sisa " + h + " poin darah. \n");
+                Console.WriteLine("==========================");
+                Console.WriteLine("========= BATTLE =========");
+                Console.WriteLine("==========================\n");
+                Console.WriteLine("    ~~  " + n + "  ~~");
+                Console.WriteLine(n + " HP :  " + h + " poin. \n");
                 Console.WriteLine("==========================");
                 Console.WriteLine("|     [A-ttack] [D-efend]  |");
                 Console.WriteLine("|     [P-otion] [R-un]     |");
                 Console.WriteLine("==========================");
-                Console.WriteLine("Kamu memiliki " + Program.player.health + " poin darah.");
-                Console.WriteLine("Kamu memiliki " + Program.player.potion + " sisa potion.");
+                Console.WriteLine("HP mu     : " + Program.player.health + " poin darah.");
+                Console.WriteLine("Potion mu : " + Program.player.potion + " buah");
                 Console.WriteLine("Pilih aksi : ");
                 String tempCommand = Console.ReadLine() ?? string.Empty;
                 if (tempCommand.ToLower() == "a" || tempCommand.ToLower() == "attack")

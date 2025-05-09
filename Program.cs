@@ -3,10 +3,15 @@
     class Program
     {
         public static Player player = new Player();
+        public static bool mainLoop = true;
         static void Main(string[] args)
         {
             Start();
             Encounter.FirstEncounter();
+            while (mainLoop)
+            {
+                Encounter.RandomEncounter();
+            }
         }
 
         static void Start()

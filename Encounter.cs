@@ -11,9 +11,26 @@ namespace Out
             Console.WriteLine("Kamu tidak memiliki pilihan selain membela diri.");
             Console.ReadKey();
             Console.Clear();
-            Combat(false, "Goblin", 1, 4);
-            Console.WriteLine("Kamu mengalahkan monsternya");
+            Combat(false, "Troll", 1, 4);
             Console.ReadKey();
+        }
+
+        public static void BasicEncounter()
+        {
+            Console.Clear();
+            Console.WriteLine("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerang mu...");
+            Console.ReadKey();
+            Combat(true, "", 0, 0);
+        }
+
+        public static void RandomEncounter()
+        {
+            switch (rand.Next(0, 1))
+            {
+                case 0:
+                    BasicEncounter();
+                    break;
+            }
         }
 
         public static void Combat(bool random, string name, int power, int health)
@@ -24,7 +41,9 @@ namespace Out
 
             if (random)
             {
-
+                n = GetName();
+                p = rand.Next(1, 5);
+                h = rand.Next(3, 9);
             }
             else
             {
@@ -150,8 +169,35 @@ namespace Out
                 Console.ReadKey();
                 Console.Clear();
 
+                if (Program.player.health <= 0)
+                {
+                    Console.WriteLine(n + " menyerangmu dengan keras dan memberikan luka yang parah. Kamu tidak dapat berdiri lagi dan kehilangan kesadaran...");
+                    Console.WriteLine("~~ GAME OVER ~~");
+                    Console.ReadKey();
+                    System.Environment.Exit(0);
+                }
             }
+
+            int goldValue = rand.Next(10, 51);
+            Console.WriteLine("Kamu berhasil mengalahkan " + n + ". Kamu mendapatkan " + goldValue + " koin!");
+            Program.player.money += goldValue;
+            Console.ReadKey();
         }
 
+        public static string GetName()
+        {
+            switch (rand.Next(0, 4))
+            {
+                case 0:
+                    return "Slime";
+                case 1:
+                    return "Bat";
+                case 2:
+                    return "Big Bug";
+                case 3:
+                    return "S. Golem";
+            }
+            return "Goblin";
+        }
     }
 }

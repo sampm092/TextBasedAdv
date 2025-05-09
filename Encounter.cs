@@ -12,7 +12,6 @@ namespace Out
             Console.ReadKey();
             Console.Clear();
             Combat(false, "Troll", 1, 4);
-            Console.ReadKey();
         }
 
         public static void BasicEncounter()
@@ -164,6 +163,7 @@ namespace Out
 
                         Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!");
                         //ke town
+                        Shop.LoadShop(Program.player);
                     }
                 }
                 Console.ReadKey();
@@ -178,7 +178,7 @@ namespace Out
                 }
             }
 
-            int goldValue = rand.Next(10, 51);
+            int goldValue = Program.player.GetMoney();
             Console.WriteLine("Kamu berhasil mengalahkan " + n + ". Kamu mendapatkan " + goldValue + " koin!");
             Program.player.money += goldValue;
             Console.ReadKey();

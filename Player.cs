@@ -5,7 +5,7 @@ namespace Out
         Random rand = new Random();
 
         public string? name;
-        public int money = 0;
+        public int money = 10000;
         public int maxHealth = 10;
         public int health = 10;
         public int attackValue = 1;
@@ -26,6 +26,13 @@ namespace Out
         {
             int upper = 2 * mods + 3;
             int lower = mods + 1;
+            return rand.Next(lower, upper);
+        }
+
+        public int GetMoney()
+        {
+            int upper = 15 * mods + 50;
+            int lower = 10 * mods + 10;
             return rand.Next(lower, upper);
         }
     }

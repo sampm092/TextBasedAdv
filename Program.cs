@@ -1,6 +1,6 @@
 ﻿namespace Out
 {
-    class Program
+    public class Program
     {
         public static Player player = new Player();
         public static bool mainLoop = true;

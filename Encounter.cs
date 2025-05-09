@@ -1,6 +1,6 @@
 namespace Out
 {
-    class Encounter
+    public class Encounter
     {
         static Random rand = new Random();
 
@@ -18,7 +18,7 @@ namespace Out
         public static void BasicEncounter()
         {
             Console.Clear();
-            Console.WriteLine("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerang mu...");
+            Console.WriteLine("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerangmu...");
             Console.ReadKey();
             Combat(true, "", 0, 0);
         }
@@ -42,8 +42,8 @@ namespace Out
             if (random)
             {
                 n = GetName();
-                p = rand.Next(1, 5);
-                h = rand.Next(3, 9);
+                p = Program.player.GetPower();
+                h = Program.player.GetHealth();
             }
             else
             {
@@ -174,7 +174,7 @@ namespace Out
                     Console.WriteLine(n + " menyerangmu dengan keras dan memberikan luka yang parah. Kamu tidak dapat berdiri lagi dan kehilangan kesadaran...");
                     Console.WriteLine("~~ GAME OVER ~~");
                     Console.ReadKey();
-                    System.Environment.Exit(0);
+                    Program.mainLoop = false; //could be error
                 }
             }
 

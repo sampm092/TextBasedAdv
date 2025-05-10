@@ -1,19 +1,21 @@
 namespace Out
 {
+    [Serializable]
     public class Player
     {
         Random rand = new Random();
 
-        public string? name;
-        public int money = 10000;
-        public int maxHealth = 10;
-        public int health = 10;
-        public int attackValue = 1;
-        public int defenseValue = 0;
-        public int weaponValue = 1;
-        public int potion = 3;
+        public int id { get; set; }
+        public string? name { get; set; }
+        public int money { get; set; } = 10000;
+        public int maxHealth { get; set; } = 10;
+        public int health { get; set; } = 10;
+        public int attackValue { get; set; } = 1;
+        public int defenseValue { get; set; } = 0;
+        public int weaponValue { get; set; } = 1;
+        public int potion { get; set; } = 3;
 
-        public int mods = 0; //for modifying power level
+        public int mods { get; set; } = 0; //for modifying power level
 
         public int GetHealth()
         {

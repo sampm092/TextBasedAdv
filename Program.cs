@@ -1,21 +1,34 @@
-﻿namespace Out
+﻿// using System.IO;
+// using System.Runtime.Serialization.Formatters.Binary;
+
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
+
+namespace Out
 {
     public class Program
     {
         public static Player player = new Player();
         public static bool mainLoop = true;
+
         static void Main(string[] args)
         {
-            Start();
-            Encounter.FirstEncounter();
+            if (!Directory.Exists("saves"))
+            {
+                Directory.CreateDirectory("saves");
+            }
+
+            player = Load(out bool newP);
+            if (newP == true) Encounter.FirstEncounter();
             while (mainLoop)
             {
                 Encounter.RandomEncounter();
             }
         }
 
-        static void Start()
+        static Player NewStart(int i)
         {
+            Player p = new Player();
             Console.Clear();
             Console.WriteLine("Kabur!`");
 
@@ -24,15 +37,17 @@
                 Console.WriteLine("Nama anda?");
                 string? input = Console.ReadLine();
 
+
                 if (!string.IsNullOrWhiteSpace(input))
                 {
-                    player.name = input;
+                    p.name = input;
+                    p.id = i;
                     break;
                 }
                 Console.WriteLine("Nama diperlukan!");
             }
             Console.Clear();
-            Console.WriteLine("Kamu, " + player.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal");
+            Console.WriteLine("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal");
             Console.WriteLine("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya");
             Console.ReadKey();
             Console.Clear();
@@ -40,7 +55,127 @@
             Console.WriteLine("Kamu harus kabur dari tempat ini!");
             Console.ReadKey();
             Console.Clear();
+            return p;
 
+        }
+
+        public static void Quit()
+        {
+            Save();
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
+        public static void Save()
+        {
+            // BinaryFormatter binFormatter = new BinaryFormatter();
+            // string path = "saves/" + player.id.ToString() + ".level";
+            // FileStream file = File.Open(path, FileMode.OpenOrCreate);
+            // binFormatter.Serialize(file, player);
+            // file.Close();
+            string path = "saves/" + player.id.ToString() + ".json";
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true // makes the JSON pretty and readable
+            };
+
+            string json = JsonSerializer.Serialize(player, options);
+            File.WriteAllText(path, json);
+        }
+
+        public static Player Load(out bool newP)
+        {
+            newP = false;
+            Console.Clear();
+            Console.WriteLine("Karakter: ");
+            string[] paths = Directory.GetFiles("saves");
+            List<Player> players = new List<Player>();
+            int idCount = 0;
+
+            // BinaryFormatter binFormatter = new BinaryFormatter();
+            foreach (string p in paths)
+            {
+                try
+                {
+                    string json = File.ReadAllText(p);
+                    Player player = JsonSerializer.Deserialize<Player>(json)!;
+                    if (player != null)
+                    {
+                        players.Add(player);
+                    }
+                }
+                catch 
+                {
+                    Console.WriteLine("Player tidak ditemukan");
+                }
+                // FileStream file = File.Open(p, FileMode.Open);
+                // Player player = (Player)binFormatter.Deserialize(file);
+                // file.Close();
+                // players.Add(player);
+            }
+
+            idCount = players.Count;
+            while (true)
+            {
+                Console.Clear();
+                foreach (Player p in players)
+                {
+                    Console.WriteLine(p.id + " : " + p.name);
+                }
+
+                Console.WriteLine("Pilih: (ketik 'create' untuk membuat karakter baru)");
+                string[] data = (Console.ReadLine() ?? string.Empty).Split(":") ;
+
+                try
+                {
+                    if (data[0] == "id")
+                    {
+                        if (int.TryParse(data[1], out int id))
+                        {
+                            foreach (Player player in players)
+                            {
+                                if (player.id == id)
+                                {
+                                    return player;
+                                }
+                            }
+                            Console.WriteLine("Player tidak ditemukan");
+                            Console.ReadKey();
+                            ;
+                        }
+                        else
+                        {
+                            Console.WriteLine("ID harus angka!");
+                            Console.ReadKey();
+                        }
+                    }
+                    else if (data[0] == "create")
+                    {
+                        Player newPlayer = NewStart(idCount);
+                        newP = true;
+                        return newPlayer;
+                    }
+                    else
+                    {
+                        foreach (Player player in players)
+                        {
+                            if (player.name == data[0])
+                            {
+                                return player;
+                            }
+                        }
+                        Console.WriteLine("Player tidak ditemukan");
+                        Console.ReadKey();
+                    }
+
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    Console.WriteLine("ID harus angka!");
+                    Console.ReadKey();
+                    // throw;
+                }
+            }
         }
     }
 

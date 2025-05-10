@@ -52,6 +52,7 @@ namespace Out
                 Console.WriteLine("==========================");
                 Console.WriteLine("Koin Kamu : " + p.money);
                 Console.WriteLine("K-eluar?");
+                Console.WriteLine("S-ave?");
                 String input = Console.ReadLine() ?? string.Empty;
                 if (input == "w" || input == "weapon")
                 {
@@ -68,6 +69,10 @@ namespace Out
                 else if (input == "d" || input == "diff" || input == "difficulty")
                 {
                     TryBuy("diff", diffPrice, p);
+                }
+                else if (input == "s" || input == "save" )
+                {
+                    Program.Quit();
                 }
                 else if (input == "k" || input == "keluar" || input == "exit")
                 {

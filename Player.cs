@@ -5,6 +5,8 @@ namespace Out
     {
         Random rand = new Random();
 
+
+        //get set is for json serialization
         public int id { get; set; }
         public string? name { get; set; }
         public int money { get; set; } = 10000;

@@ -44,6 +44,7 @@ namespace Out
                 Console.WriteLine("==== Status " + p.name + " ====");
                 Console.WriteLine("==========================\n");
                 Console.WriteLine("| Max HP          : " + p.maxHealth);
+                Console.WriteLine("| HP              : " + p.health);
                 Console.WriteLine("| Kekuatan serang : " + (p.attackValue + p.weaponValue));
                 Console.WriteLine("| Ketahanan       : " + p.defenseValue);
                 Console.WriteLine("| Potion          : " + p.potion);

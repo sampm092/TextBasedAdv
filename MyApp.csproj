@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Windows.Extensions" Version="9.0.4" />
+    <!-- Track sounds.wav -->
      <Content Include="sounds\text.wav">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>

@@ -35,7 +35,7 @@ namespace MyApp
                 string? input = Console.ReadLine();
 
 
-                if (!string.IsNullOrWhiteSpace(input))
+                if (!string.IsNullOrWhiteSpace(input)) //avoid null input
                 {
                     p.name = input;
                     p.id = i;
@@ -64,12 +64,7 @@ namespace MyApp
         }
         public static void Save()
         {
-            // BinaryFormatter binFormatter = new BinaryFormatter();
-            // string path = "saves/" + player.id.ToString() + ".level";
-            // FileStream file = File.Open(path, FileMode.OpenOrCreate);
-            // binFormatter.Serialize(file, player);
-            // file.Close();
-            string path = "saves/" + player.id.ToString() + ".json";
+            string path = "saves/" + player.id.ToString() + ".json"; //binary formatter can't be used -> use json
 
             var options = new JsonSerializerOptions
             {
@@ -105,10 +100,6 @@ namespace MyApp
                 {
                     Console.WriteLine("Player tidak ditemukan");
                 }
-                // FileStream file = File.Open(p, FileMode.Open);
-                // Player player = (Player)binFormatter.Deserialize(file);
-                // file.Close();
-                // players.Add(player);
             }
 
             idCount = players.Count;
@@ -171,15 +162,15 @@ namespace MyApp
                 {
                     Console.WriteLine("ID harus angka!");
                     Console.ReadKey();
-                    // throw;
                 }
             }
         }
+        
         public static void Print(string text, int speed = 40)
         {
             string path = Path.Combine(AppContext.BaseDirectory, "sounds", "text.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
 
-            if (OperatingSystem.IsWindows())
+            if (OperatingSystem.IsWindows()) //checking if window
             {
                 SoundPlayer player = new SoundPlayer(path);
                 player.PlayLooping();
@@ -190,9 +181,6 @@ namespace MyApp
                 }
                 player.Stop();
             }
-
-
-
             Console.WriteLine();
         }
     }

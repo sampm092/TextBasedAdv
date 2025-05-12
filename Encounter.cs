@@ -14,8 +14,9 @@ namespace MyApp
             Combat(false, "Troll", 1, 4);
         }
 
-        public static void BasicEncounter()
+        public static void BasicEncounter() 
         {
+            
             Console.Clear();
             Program.Print("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerangmu...",20);
             Console.ReadKey();
@@ -24,7 +25,8 @@ namespace MyApp
 
         public static void RandomEncounter()
         {
-            switch (rand.Next(0, 1))
+            //for random encounter after first
+            switch (rand.Next(0, 1)) //switching the type of random encounter
             {
                 case 0:
                     BasicEncounter();
@@ -174,7 +176,7 @@ namespace MyApp
                     Program.Print(n + " menyerangmu dengan keras dan memberikan luka yang parah. Kamu tidak dapat berdiri lagi dan kehilangan kesadaran...",20);
                     Console.WriteLine("~~ GAME OVER ~~");
                     Console.ReadKey();
-                    Program.mainLoop = false; //could be error
+                    Program.mainLoop = false; //exit the program
                 }
             }
 
@@ -197,7 +199,7 @@ namespace MyApp
                 case 3:
                     return "S. Golem";
             }
-            return "Goblin";
+            return "Goblin"; //default
         }
     }
 }

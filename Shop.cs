@@ -2,9 +2,9 @@ namespace MyApp
 {
     public class Shop
     {
-        static int armorUp;
-        static int weaponUp;
-        static int diffUp;
+        // static int armorUp;
+        // static int weaponUp;
+        // static int diffUp;
 
         public static void LoadShop(Player p)
         {

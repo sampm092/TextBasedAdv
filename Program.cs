@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-
+using System.Media;
 namespace Out
 {
     public class Program
@@ -13,6 +13,7 @@ namespace Out
             {
                 Directory.CreateDirectory("saves");
             }
+            
 
             player = Load(out bool newP);
             if (newP == true) Encounter.FirstEncounter();
@@ -26,7 +27,7 @@ namespace Out
         {
             Player p = new Player();
             Console.Clear();
-            Print("Kabur!`",70);
+            Print("Kabur!`", 70);
 
             while (true)
             {
@@ -43,12 +44,12 @@ namespace Out
                 Console.WriteLine("Nama diperlukan!");
             }
             Console.Clear();
-            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal",20);
-            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya",20);
+            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal", 20);
+            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya", 20);
             Console.ReadKey();
             Console.Clear();
-            Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal",20);
-            Print("Kamu harus kabur dari tempat ini!",20);
+            Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal", 20);
+            Print("Kamu harus kabur dari tempat ini!", 20);
             Console.ReadKey();
             Console.Clear();
             return p;
@@ -113,11 +114,12 @@ namespace Out
             idCount = players.Count;
             while (true)
             {
-                
+
                 foreach (Player p in players)
                 {
                     Console.WriteLine(p.id + " : " + p.name);
                 }
+                
 
                 Console.WriteLine("Pilih: (ketik 'create' untuk membuat karakter baru)");
                 string[] data = (Console.ReadLine() ?? string.Empty).Split(":");
@@ -175,11 +177,18 @@ namespace Out
         }
         public static void Print(string text, int speed = 40)
         {
+            string path = Path.Combine(AppContext.BaseDirectory, "sounds", "text.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
+            SoundPlayer player = new SoundPlayer(path);
+            player.PlayLooping();
+
+
             foreach (char c in text)
             {
                 Console.Write(c);
                 System.Threading.Thread.Sleep(speed);
             }
+            player.Stop();
+
             Console.WriteLine();
         }
     }

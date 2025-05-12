@@ -96,7 +96,7 @@ namespace Out
             }
             else
             {
-                Console.WriteLine("Kamu tidak memiliki cukup uang");
+                Program.Print("Kamu tidak memiliki cukup uang",15);
                 Console.ReadKey();
             }
 

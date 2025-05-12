@@ -6,9 +6,9 @@ namespace Out
 
         public static void FirstEncounter()
         {
-            Program.Print("Kamu membuka pintu yang ternyata tidak dikunci.", 20);
-            Program.Print("Tanpa basa-basi, sesuatu datang ke arahmu dengan ujud memberikanmu celaka.", 20);
-            Program.Print("Kamu tidak memiliki pilihan selain membela diri.", 20);
+            Program.Print("Kamu membuka pintu yang ternyata tidak dikunci.", 15);
+            Program.Print("Tanpa basa-basi, sesuatu datang ke arahmu dengan ujud memberikanmu celaka.", 15);
+            Program.Print("Kamu tidak memiliki pilihan selain membela diri.", 15);
             Console.ReadKey();
             Console.Clear();
             Combat(false, "Troll", 1, 4);

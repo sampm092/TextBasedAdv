@@ -44,12 +44,12 @@ namespace Out
                 Console.WriteLine("Nama diperlukan!");
             }
             Console.Clear();
-            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal", 20);
-            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya", 20);
+            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal", 15);
+            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya", 15);
             Console.ReadKey();
             Console.Clear();
-            Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal", 20);
-            Print("Kamu harus kabur dari tempat ini!", 20);
+            Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal", 15);
+            Print("Kamu harus kabur dari tempat ini!", 15);
             Console.ReadKey();
             Console.Clear();
             return p;

@@ -9,7 +9,7 @@ namespace Out
         //get set is for json serialization
         public int id { get; set; }
         public string? name { get; set; }
-        public int money { get; set; } = 10000;
+        public int money { get; set; } = 70;
         public int maxHealth { get; set; } = 10;
         public int health { get; set; } = 10;
         public int attackValue { get; set; } = 1;

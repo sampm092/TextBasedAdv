@@ -26,11 +26,11 @@ namespace Out
         {
             Player p = new Player();
             Console.Clear();
-            Console.WriteLine("Kabur!`");
+            Print("Kabur!`",70);
 
             while (true)
             {
-                Console.WriteLine("Nama anda?");
+                Print("Nama anda?", 70);
                 string? input = Console.ReadLine();
 
 
@@ -43,12 +43,12 @@ namespace Out
                 Console.WriteLine("Nama diperlukan!");
             }
             Console.Clear();
-            Console.WriteLine("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal");
-            Console.WriteLine("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya");
+            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal",20);
+            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya",20);
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal");
-            Console.WriteLine("Kamu harus kabur dari tempat ini!");
+            Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal",20);
+            Print("Kamu harus kabur dari tempat ini!",20);
             Console.ReadKey();
             Console.Clear();
             return p;
@@ -100,7 +100,7 @@ namespace Out
                         players.Add(player);
                     }
                 }
-                catch 
+                catch
                 {
                     Console.WriteLine("Player tidak ditemukan");
                 }
@@ -113,14 +113,14 @@ namespace Out
             idCount = players.Count;
             while (true)
             {
-                Console.Clear();
+                
                 foreach (Player p in players)
                 {
                     Console.WriteLine(p.id + " : " + p.name);
                 }
 
                 Console.WriteLine("Pilih: (ketik 'create' untuk membuat karakter baru)");
-                string[] data = (Console.ReadLine() ?? string.Empty).Split(":") ;
+                string[] data = (Console.ReadLine() ?? string.Empty).Split(":");
 
                 try
                 {
@@ -155,7 +155,7 @@ namespace Out
                     {
                         foreach (Player player in players)
                         {
-                            if (player.name == data[0])
+                            if (player.name == data[0] || player.name!.ToLower() == data[0])
                             {
                                 return player;
                             }
@@ -172,6 +172,15 @@ namespace Out
                     // throw;
                 }
             }
+        }
+        public static void Print(string text, int speed = 40)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                System.Threading.Thread.Sleep(speed);
+            }
+            Console.WriteLine();
         }
     }
 

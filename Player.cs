@@ -1,4 +1,4 @@
-namespace Out
+namespace MyApp
 {
     [Serializable]
     public class Player

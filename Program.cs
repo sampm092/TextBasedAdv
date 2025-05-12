@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using System.Media;
-namespace Out
+namespace MyApp
 {
     public class Program
     {
@@ -27,11 +27,11 @@ namespace Out
         {
             Player p = new Player();
             Console.Clear();
-            Print("Kabur!`", 70);
+            Print("Kabur!`", 50);
 
             while (true)
             {
-                Print("Nama anda?", 70);
+                Print("Nama anda?", 50);
                 string? input = Console.ReadLine();
 
 

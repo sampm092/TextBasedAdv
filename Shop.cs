@@ -1,4 +1,4 @@
-namespace Out
+namespace MyApp
 {
     public class Shop
     {

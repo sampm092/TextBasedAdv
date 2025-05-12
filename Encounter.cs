@@ -6,9 +6,9 @@ namespace Out
 
         public static void FirstEncounter()
         {
-            Console.WriteLine("Kamu membuka pintu yang ternyata tidak dikunci.");
-            Console.WriteLine("Tanpa basa-basi, sesuatu datang ke arahmu dengan ujud memberikanmu celaka.");
-            Console.WriteLine("Kamu tidak memiliki pilihan selain membela diri.");
+            Program.Print("Kamu membuka pintu yang ternyata tidak dikunci.", 20);
+            Program.Print("Tanpa basa-basi, sesuatu datang ke arahmu dengan ujud memberikanmu celaka.", 20);
+            Program.Print("Kamu tidak memiliki pilihan selain membela diri.", 20);
             Console.ReadKey();
             Console.Clear();
             Combat(false, "Troll", 1, 4);
@@ -17,7 +17,7 @@ namespace Out
         public static void BasicEncounter()
         {
             Console.Clear();
-            Console.WriteLine("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerangmu...");
+            Program.Print("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerangmu...",20);
             Console.ReadKey();
             Combat(true, "", 0, 0);
         }
@@ -69,14 +69,14 @@ namespace Out
                 if (tempCommand.ToLower() == "a" || tempCommand.ToLower() == "attack")
                 //Attack Command
                 {
-                    Console.WriteLine("Sebilah pedang di tangan, kamu mengayunkannya ke arah " + n + " dan dia menyerang balik");
+                    Program.Print("Sebilah pedang di tangan, kamu mengayunkannya ke arah " + n + " dan dia menyerang balik",20);
                     int pDamageValue = p - Program.player.defenseValue;
                     if (pDamageValue < 0)
                     {
                         pDamageValue = 0;
                     }
                     int pAttack = rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue);
-                    Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah");
+                    Program.Print("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah",20);
                     Program.player.health -= pDamageValue;
                     h -= pAttack;
                 }
@@ -84,7 +84,7 @@ namespace Out
                 //Defend Command
                 {
 
-                    Console.WriteLine("Kamu melihat " + n + " bersiap menyerangmu, dengan segera kamu bersiaga dan memposisikan diri untuk bertahan.");
+                    Program.Print("Kamu melihat " + n + " bersiap menyerangmu, dengan segera kamu bersiaga dan memposisikan diri untuk bertahan.",20);
                     int pDamageValue = (p / 3) - Program.player.defenseValue;
                     if (pDamageValue < 0)
                     {
@@ -92,7 +92,7 @@ namespace Out
                     }
                     int pAttack = (rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue)) / 2; //maybe error
                     pAttack = (int)Math.Ceiling((double)pAttack); //maybe error
-                    Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah");
+                    Program.Print("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah",20);
                     Program.player.health -= pDamageValue;
                     h -= pAttack;
 
@@ -103,15 +103,15 @@ namespace Out
 
                     if (Program.player.potion == 0)
                     {
-                        Console.WriteLine("Kamu kehabisan potion untuk digunakan dan " + n + "berkesempatan untuk menyerangmu yang sedang kebingungan");
+                       Program.Print("Kamu kehabisan potion untuk digunakan dan " + n + "berkesempatan untuk menyerangmu yang sedang kebingungan",20);
                         int pDamageValue = p;
 
                         Program.player.health -= pDamageValue;
-                        Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah");
+                        Program.Print("Kamu kehilangan " + pDamageValue + " poin darah",20);
                     }
                     else
                     { //maybe error
-                        Console.WriteLine("Kamu mengambil sebuah potion dan segera menggunakannya");
+                        Program.Print("Kamu mengambil sebuah potion dan segera menggunakannya",20);
                         int heal = 10;
                         if (Program.player.health == heal)
                         {
@@ -133,7 +133,7 @@ namespace Out
                             }
                         }
 
-                        Console.WriteLine("Kamu mendapatkan " + heal + " poin darah");
+                        Program.Print("Kamu mendapatkan " + heal + " poin darah",20);
                         Program.player.health += heal;
                         Program.player.potion -= 1;
                         int pDamageValue = rand.Next(0, p + 1) - Program.player.defenseValue;
@@ -141,7 +141,7 @@ namespace Out
                         {
                             pDamageValue = 0;
                         }
-                        Console.WriteLine(n + " menyerangmu setelah meminum potion dan memberikan " + pDamageValue + " poin serangan");
+                        Program.Print(n + " menyerangmu setelah meminum potion dan memberikan " + pDamageValue + " poin serangan",20);
                         Program.player.health -= pDamageValue;
 
                     }
@@ -152,16 +152,16 @@ namespace Out
                     if (rand.Next(0, 2) == 0)
                     {
 
-                        Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kamu tidak menemukan celah dan " + n + " menyerangmu!");
+                       Program.Print("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kamu tidak menemukan celah dan " + n + " menyerangmu!",20);
                         int pDamageValue = (int)Math.Ceiling((double)p * (3 / 2)); //maybe error
 
                         Program.player.health -= pDamageValue;
-                        Console.WriteLine("Kamu kehilangan " + pDamageValue + " poin darah");
+                        Program.Print("Kamu kehilangan " + pDamageValue + " poin darah",20);
                     }
                     else
                     {
 
-                        Console.WriteLine("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!");
+                        Program.Print("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ". Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!",20);
                         //ke town
                         Shop.LoadShop(Program.player);
                     }
@@ -171,7 +171,7 @@ namespace Out
 
                 if (Program.player.health <= 0)
                 {
-                    Console.WriteLine(n + " menyerangmu dengan keras dan memberikan luka yang parah. Kamu tidak dapat berdiri lagi dan kehilangan kesadaran...");
+                    Program.Print(n + " menyerangmu dengan keras dan memberikan luka yang parah. Kamu tidak dapat berdiri lagi dan kehilangan kesadaran...",20);
                     Console.WriteLine("~~ GAME OVER ~~");
                     Console.ReadKey();
                     Program.mainLoop = false; //could be error
@@ -179,7 +179,7 @@ namespace Out
             }
 
             int goldValue = Program.player.GetMoney();
-            Console.WriteLine("Kamu berhasil mengalahkan " + n + ". Kamu mendapatkan " + goldValue + " koin!");
+            Program.Print("Kamu berhasil mengalahkan " + n + ". Kamu mendapatkan " + goldValue + " koin!",20);
             Program.player.money += goldValue;
             Console.ReadKey();
         }

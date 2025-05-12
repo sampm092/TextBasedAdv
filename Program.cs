@@ -13,7 +13,7 @@ namespace Out
             {
                 Directory.CreateDirectory("saves");
             }
-            
+
 
             player = Load(out bool newP);
             if (newP == true) Encounter.FirstEncounter();
@@ -119,7 +119,7 @@ namespace Out
                 {
                     Console.WriteLine(p.id + " : " + p.name);
                 }
-                
+
 
                 Console.WriteLine("Pilih: (ketik 'create' untuk membuat karakter baru)");
                 string[] data = (Console.ReadLine() ?? string.Empty).Split(":");
@@ -178,16 +178,20 @@ namespace Out
         public static void Print(string text, int speed = 40)
         {
             string path = Path.Combine(AppContext.BaseDirectory, "sounds", "text.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
-            SoundPlayer player = new SoundPlayer(path);
-            player.PlayLooping();
 
-
-            foreach (char c in text)
+            if (OperatingSystem.IsWindows())
             {
-                Console.Write(c);
-                System.Threading.Thread.Sleep(speed);
+                SoundPlayer player = new SoundPlayer(path);
+                player.PlayLooping();
+                foreach (char c in text)
+                {
+                    Console.Write(c);
+                    System.Threading.Thread.Sleep(speed);
+                }
+                player.Stop();
             }
-            player.Stop();
+
+
 
             Console.WriteLine();
         }

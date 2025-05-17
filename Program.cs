@@ -31,7 +31,7 @@ namespace MyApp
 
             while (true)
             {
-                Print("Nama anda?", 50);
+                Print("Namamu?", 50);
                 string? input = Console.ReadLine();
 
 
@@ -43,6 +43,34 @@ namespace MyApp
                 }
                 Console.WriteLine("Nama diperlukan!");
             }
+
+            bool Flag = false;
+            while (Flag == false)
+            {
+                Flag = true;
+                Print("Pilih kelas yang kamu inginkan : ");
+                Print("Warrior, Knight, Alchemist");
+
+                string? input = Console.ReadLine()!.ToLower();
+
+                if (!string.IsNullOrWhiteSpace(input)) //avoid null input
+                {
+                    if (input == "warrior")
+                        p.currentClass = Player.PLayerClass.Warrior;
+                    else if (input == "knight")
+                        p.currentClass = Player.PLayerClass.Knight;
+                    else if (input == "alchemist")
+                        p.currentClass = Player.PLayerClass.Alchemist;
+                    else
+                    {
+                        Print("Pilih kelas yang tersedia!");
+                        Flag = false;
+                    }
+                    
+                }
+                Console.WriteLine("Tolong masukkan kelas!");
+            }
+
             Console.Clear();
             Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal", 15);
             Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya", 15);
@@ -165,7 +193,7 @@ namespace MyApp
                 }
             }
         }
-        
+
         public static void Print(string text, int speed = 40)
         {
             string path = Path.Combine(AppContext.BaseDirectory, "sounds", "text.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/

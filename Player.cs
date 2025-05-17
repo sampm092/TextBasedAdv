@@ -10,17 +10,17 @@ namespace MyApp
         public int id { get; set; }
         public string? name { get; set; }
         public int money { get; set; } = 70;
-        public int maxHealth { get; set; } = 10+ ((Program.player.currentClass==PLayerClass.Alchemist)?+4:0);
+        public int maxHealth { get; set; } = 10;
         public int health { get; set; } = 10;
         public int attackValue { get; set; } = 1;
-        public int defenseValue { get; set; } = 0 + ((Program.player.currentClass==PLayerClass.Knight)?+2:0);
-        public int weaponValue { get; set; } = 1 + ((Program.player.currentClass==PLayerClass.Warrior)?+2:0);
-        public int potion { get; set; } = 3 + + ((Program.player.currentClass==PLayerClass.Alchemist)?+2:0);
+        public int defenseValue { get; set; } = 0 ;
+        public int weaponValue { get; set; } = 1;
+        public int potion { get; set; } = 3;
 
         public int mods { get; set; } = 0; //for modifying power level
 
-        public enum PLayerClass {Warrior, Knight, Alchemist};
-        public PLayerClass currentClass {get;set;} = PLayerClass.Warrior;
+        public enum PLayerClass { Warrior, Knight, Alchemist };
+        public PLayerClass currentClass { get; set; } = PLayerClass.Warrior;
 
         public int GetHealth()  //randomize enemy health
         {

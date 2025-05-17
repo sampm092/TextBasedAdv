@@ -56,17 +56,27 @@ namespace MyApp
                 if (!string.IsNullOrWhiteSpace(input)) //avoid null input
                 {
                     if (input == "warrior")
+                    {
                         p.currentClass = Player.PLayerClass.Warrior;
+                        p.attackValue += 2;
+                    }
                     else if (input == "knight")
+                    {
                         p.currentClass = Player.PLayerClass.Knight;
+                        p.defenseValue += 2;
+                    }
                     else if (input == "alchemist")
+                    {
                         p.currentClass = Player.PLayerClass.Alchemist;
+                        p.maxHealth += 4;
+                        p.potion += 2;
+                    }
                     else
                     {
                         Print("Pilih kelas yang tersedia!");
                         Flag = false;
                     }
-                    
+
                 }
                 Console.WriteLine("Tolong masukkan kelas!");
             }

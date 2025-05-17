@@ -32,7 +32,7 @@ namespace MyApp
 
                 Console.Clear();
                 Console.WriteLine("==== SELAMAT DATANG ! ====");
-                Console.WriteLine("==========================\n");
+                Console.WriteLine("==========================");
                 Console.WriteLine("==========================");
                 Console.WriteLine("| Tingkatkan apa?        |");
                 Console.WriteLine("| [W-eapon]     : " + weaponPrice);
@@ -40,9 +40,10 @@ namespace MyApp
                 Console.WriteLine("| [P-otion]     : " + potionPrice);
                 Console.WriteLine("| [M-ax Health] : " + maxHPrice);
                 Console.WriteLine("| [D-ifficulty] : " + diffPrice);
-                Console.WriteLine("\n\n");
+                Console.WriteLine("\n");
                 Console.WriteLine("==== Status " + p.name + " ====");
-                Console.WriteLine("==========================\n");
+                Console.WriteLine("==== Class " + p.currentClass + " ====");
+                Console.WriteLine("==========================");
                 Console.WriteLine("| Max HP          : " + p.maxHealth);
                 Console.WriteLine("| HP              : " + p.health);
                 Console.WriteLine("| Kekuatan serang : " + (p.attackValue + p.weaponValue));
@@ -71,7 +72,7 @@ namespace MyApp
                 {
                     TryBuy("diff", diffPrice, p);
                 }
-                else if (input == "s" || input == "save" )
+                else if (input == "s" || input == "save")
                 {
                     Program.Quit();
                 }
@@ -96,7 +97,7 @@ namespace MyApp
             }
             else
             {
-                Program.Print("Kamu tidak memiliki cukup uang",15);
+                Program.Print("Kamu tidak memiliki cukup uang", 15);
                 Console.ReadKey();
             }
 

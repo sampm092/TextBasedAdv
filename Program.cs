@@ -44,7 +44,7 @@ namespace MyApp
                 Console.WriteLine("Nama diperlukan!");
             }
 
-            bool Flag = false;
+            bool Flag = false; //for the class loop
             while (Flag == false)
             {
                 Flag = true;
@@ -127,6 +127,7 @@ namespace MyApp
             {
                 try
                 {
+                    //find player saves
                     string json = File.ReadAllText(p);
                     Player player = JsonSerializer.Deserialize<Player>(json)!;
                     if (player != null)

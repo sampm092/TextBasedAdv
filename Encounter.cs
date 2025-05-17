@@ -115,31 +115,22 @@ namespace MyApp
                     { //maybe error
                         Program.Print("Kamu mengambil sebuah potion dan segera menggunakannya", 5);
                         int heal = 10;
-                        if (Program.player.health == heal)
+                        int missingHealth = Program.player.maxHealth - Program.player.health;
+
+                        if (missingHealth == 0)
                         {
                             heal = 0;
                         }
+                        else if (heal > missingHealth)
+                        {
+                            heal = missingHealth;
+                        }
+                        else if (heal <= missingHealth)
+                        {
+                            // Optional: clamp to a maximum heal value (e.g., 10)
+                            heal = Math.Min(heal, 10);
+                        }
 
-                        // maxh = 14, health = 9. 
-                        else if (Program.player.health < heal && Program.player.maxHealth <= 10)
-                        {
-                            heal -= Program.player.health;
-                        }
-                        else if (Program.player.health < heal && Program.player.maxHealth >= 10)
-                        {
-                            heal -= Program.player.maxHealth - Program.player.health;
-                        }
-                        else if (heal < Program.player.health)
-                        {
-                            if (Program.player.maxHealth - Program.player.health < heal)
-                            {
-                                heal = Program.player.maxHealth - Program.player.health;
-                            }
-                            else
-                            {
-                                heal = 10;
-                            }
-                        }
 
                         Program.Print("Kamu mendapatkan " + heal + " poin darah", 20);
                         Program.player.health += heal;
@@ -170,7 +161,7 @@ namespace MyApp
                     else
                     {
 
-                        Program.Print("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ".",5) ;
+                        Program.Print("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ".", 5);
                         Program.Print("Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!", 5);
                         //ke town
                         Shop.LoadShop(Program.player);

@@ -19,8 +19,8 @@ namespace MyApp
 
         public int mods { get; set; } = 0; //for modifying power level
 
-        public enum PLayerClass { Warrior, Knight, Alchemist };
-        public PLayerClass currentClass { get; set; } = PLayerClass.Warrior;
+        public enum PLayerClass { Warrior, Knight, Alchemist }; //3 class for now
+        public PLayerClass currentClass { get; set; } = PLayerClass.Warrior; //default class
 
         public int GetHealth()  //randomize enemy health
         {

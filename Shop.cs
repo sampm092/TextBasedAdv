@@ -18,7 +18,6 @@ namespace MyApp
         public static void RunShop(Player p)
         {
             int potionPrice;
-            int requiredEXP = 50 * p.level + 400;
             decimal ProgressBarInt = (decimal)p.exp / (decimal)p.LevelUpValue();
             int weaponPrice;
             int maxHPrice;
@@ -44,7 +43,7 @@ namespace MyApp
                 Console.Write("[");
                 Program.ProgressBar("=", ProgressBarInt, 25);
                 Console.WriteLine("]");
-                Console.WriteLine("                  " + + p.exp + "/" + requiredEXP);
+                Console.WriteLine("                  " + + p.exp + "/" + p.LevelUpValue());
                 Console.WriteLine("-------------------------");
                 Console.WriteLine(" Max HP          : " + p.maxHealth);
                 Console.WriteLine(" HP              : " + p.health);

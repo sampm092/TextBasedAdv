@@ -223,7 +223,7 @@ namespace MyApp
             Console.WriteLine();
         }
 
-        public static void ProgressBar(string barSymbol, decimal value, int size)
+        public static void ProgressBar(string barSymbol, decimal value, int size)//size for the amount of progress bar, value for the exp value
         {
             int differ = (int)(value * size);
             for (int i = 0; i < size; i++)
@@ -233,6 +233,10 @@ namespace MyApp
                 else
                     Console.Write("-");
             }
+
+            // Result
+            // Exp :
+            // [========================-]
         }
     }
 

@@ -53,7 +53,7 @@ namespace MyApp
 
         public int LevelUpValue()
         {
-            return 50 * level + 400;
+            return 50 * level + 400; //exp needed for level up
         }
 
         public bool CanLevelUp()
@@ -66,7 +66,7 @@ namespace MyApp
         {
             while (CanLevelUp())
             {
-                exp -= LevelUpValue();
+                exp -= LevelUpValue(); //resetting the exp value after Level Up
                 level++;
             }
             Program.Print("Kamu naik level menjadi level " + level + " !");

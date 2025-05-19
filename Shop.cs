@@ -18,6 +18,8 @@ namespace MyApp
         public static void RunShop(Player p)
         {
             int potionPrice;
+            int requiredEXP = 50 * p.level + 400;
+            decimal ProgressBarInt = (decimal)p.exp / (decimal)p.LevelUpValue();
             int weaponPrice;
             int maxHPrice;
             int armorPrice;
@@ -31,30 +33,36 @@ namespace MyApp
                 diffPrice = 300 + 100 * p.mods;
 
                 Console.Clear();
+                Console.WriteLine("==========================");
                 Console.WriteLine("==== SELAMAT DATANG ! ====");
                 Console.WriteLine("==========================");
+                Console.WriteLine(" Status " + p.name);
+                Console.WriteLine(" Class " + p.currentClass );
                 Console.WriteLine("==========================");
-                Console.WriteLine("| Tingkatkan apa?        |");
-                Console.WriteLine("| [W-eapon]     : " + weaponPrice);
-                Console.WriteLine("| [A-rmor]      : " + armorPrice);
-                Console.WriteLine("| [P-otion]     : " + potionPrice);
-                Console.WriteLine("| [M-ax Health] : " + maxHPrice);
-                Console.WriteLine("| [D-ifficulty] : " + diffPrice);
-                Console.WriteLine("\n");
-                Console.WriteLine("==== Status " + p.name + " ====");
-                Console.WriteLine("==== Class " + p.currentClass + " ====");
+                Console.WriteLine(" Level           : " + p.level);
+                Console.WriteLine(" Exp : " );
+                Console.Write("[");
+                Program.ProgressBar("=", ProgressBarInt, 25);
+                Console.WriteLine("]");
+                Console.WriteLine("                  " + + p.exp + "/" + requiredEXP);
+                Console.WriteLine("-------------------------");
+                Console.WriteLine(" Max HP          : " + p.maxHealth);
+                Console.WriteLine(" HP              : " + p.health);
+                Console.WriteLine(" Kekuatan serang : " + (p.attackValue + p.weaponValue));
+                Console.WriteLine(" Ketahanan       : " + p.defenseValue);
+                Console.WriteLine(" Potion          : " + p.potion);
+                Console.WriteLine(" Koin            : " + p.money);
+                Console.WriteLine(" Kesulitan       : " + p.mods);
                 Console.WriteLine("==========================");
-                Console.WriteLine("| Max HP          : " + p.maxHealth);
-                Console.WriteLine("| HP              : " + p.health);
-                Console.WriteLine("| Kekuatan serang : " + (p.attackValue + p.weaponValue));
-                Console.WriteLine("| Ketahanan       : " + p.defenseValue);
-                Console.WriteLine("| Potion          : " + p.potion);
-                Console.WriteLine("| Koin            : " + p.money);
-                Console.WriteLine("| Kesulitan       : " + p.mods);
-                Console.WriteLine("==========================");
+                Console.WriteLine(" Tingkatkan apa?        ");
+                Console.WriteLine(" [W-eapon]     : " + weaponPrice);
+                Console.WriteLine(" [A-rmor]      : " + armorPrice);
+                Console.WriteLine(" [P-otion]     : " + potionPrice);
+                Console.WriteLine(" [M-ax Health] : " + maxHPrice);
+                Console.WriteLine(" [D-ifficulty] : " + diffPrice);
                 Console.WriteLine("Koin Kamu : " + p.money);
-                Console.WriteLine("K-eluar?");
-                Console.WriteLine("S-ave?");
+                Console.WriteLine("K-embali?");
+                Console.WriteLine("S-ave dan keluar?");
                 String input = Console.ReadLine() ?? string.Empty;
                 if (input == "w" || input == "weapon")
                 {

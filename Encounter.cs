@@ -175,13 +175,20 @@ namespace MyApp
                     Program.Print(n + " menyerangmu dengan keras dan memberikan luka yang parah. Kamu tidak dapat berdiri lagi dan kehilangan kesadaran...", 5);
                     Console.WriteLine("~~ GAME OVER ~~");
                     Console.ReadKey();
-                    Program.mainLoop = false; //exit the program
+                    Environment.Exit(0); //exit the program
                 }
             }
 
             int goldValue = Program.player.GetMoney();
+            int expValue = Program.player.GetXP();
             Program.Print("Kamu berhasil mengalahkan " + n + ". Kamu mendapatkan " + goldValue + " koin!", 5);
+            Program.Print("Kamu mendapatkan " + expValue + " poin exp!", 5);
             Program.player.money += goldValue;
+            Program.player.exp += expValue;
+            if (Program.player.CanLevelUp())
+            {
+                Program.player.LevelUp();
+            }
             Console.ReadKey();
         }
 

@@ -18,7 +18,7 @@ namespace MyApp
         public int potion { get; set; } = 3;
         public int mods { get; set; } = 0; //for modifying power level
         public int level { get; set; } = 1;
-        public int exp { get; set; } = 0;
+        public int exp { get; set; } = 440;
 
         public enum PLayerClass { Warrior, Knight, Alchemist }; //3 class for now
         public PLayerClass currentClass { get; set; } = PLayerClass.Warrior; //default class

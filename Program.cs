@@ -48,8 +48,8 @@ namespace MyApp
             while (Flag == false)
             {
                 Flag = true;
-                Print("Pilih kelas yang kamu inginkan : ");
-                Print("Warrior, Knight, Alchemist");
+                Console.WriteLine("Pilih kelas yang kamu inginkan : ");
+                Console.WriteLine("Warrior, Knight, Alchemist");
 
                 string? input = Console.ReadLine()!.ToLower();
 
@@ -221,6 +221,18 @@ namespace MyApp
                 player.Stop();
             }
             Console.WriteLine();
+        }
+
+        public static void ProgressBar(string barSymbol, decimal value, int size)
+        {
+            int differ = (int)(value * size);
+            for (int i = 0; i < size; i++)
+            {
+                if (i < differ)
+                    Console.Write(barSymbol);
+                else
+                    Console.Write("-");
+            }
         }
     }
 

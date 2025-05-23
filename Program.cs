@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using System.Media;
 namespace MyApp
 {
     public class Program
@@ -20,36 +19,55 @@ namespace MyApp
 
             while (true)
             {
-            Print("Pilih jalan yang ingin kamu lewati: ", 15);
-            Console.WriteLine("Maju | Kanan | Shop");
-            string input1 = Console.ReadLine()!.ToLower();
-                if (input1 == "maju")
+                if (player.position == 1)
                 {
-                    Encounter.SecondEncounter();
-                    break;
+                    Function.Print("Pilih jalan yang ingin kamu lewati: ", 15);
+                    Console.WriteLine("Maju | Kanan | Shop");
+                    string input1 = Console.ReadLine()!.ToLower();
+                    if (input1 == "maju")
+                    {
+                        Encounter.SecondEncounter();
+                        player.position = 21;
+                        break;
+                    }
+                    else if (input1 == "kanan")
+                    {
+                        Function.Print("Ruangan ini sepertinya hanya ruangan biasa.", 15);
+                        Console.ReadKey();
+                        Encounter.RandomEncounter();
+                        player.position = 22;
+                        
+                    }
+                    else if (input1 == "shop")
+                    {
+                        Shop.LoadShop(player);
+                        Console.Clear();
+                        // break;
+                    }
+                    else
+                    {
+                        Function.Print("Masukkan input sesuai pilihan!");
+                    }
                 }
-                else if (input1 == "kanan")
+                if (player.position == 22)
                 {
-                    Print("Ruangan ini sepertinya hanya ruangan biasa.", 15);
-                    Console.ReadKey();
-                    Encounter.RandomEncounter();
-                    break;
-                }
-                else if (input1 == "shop")
-                {
-                    Shop.LoadShop(player);
-                    Console.Clear();
-                    // break;
-                }
-                else
-                {
-                    Print("Masukkan input sesuai pilihan!");
+                    while (true)
+                    {
+                        Function.Print("Pilih jalan yang ingin kamu lewati: ", 15);
+                        Console.WriteLine("Maju | Kiri | Shop");
+                        string input2 = Console.ReadLine()!.ToLower();
+                        if (input2 == "shop")
+                        {
+                            Shop.LoadShop(player);
+                            Console.Clear();
+                        }
+                    }
                 }
             }
 
             // while (mainLoop)
             // {
-                
+
             // }
 
         }
@@ -58,11 +76,11 @@ namespace MyApp
         {
             Player p = new Player();
             Console.Clear();
-            Print("Kabur!`", 50);
+            Function.Print("Kabur!`", 50);
 
             while (true)
             {
-                Print("Namamu?", 50);
+                Function.Print("Namamu?", 50);
                 string? input = Console.ReadLine();
 
 
@@ -104,7 +122,7 @@ namespace MyApp
                     }
                     else
                     {
-                        Print("Pilih kelas yang tersedia!");
+                        Function.Print("Pilih kelas yang tersedia!");
                         Flag = false;
                     }
 
@@ -113,13 +131,13 @@ namespace MyApp
             }
 
             Console.Clear();
-            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal.", 15);
-            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh ", 15);
-            Print("dan sebuah pintu tampak diantaranya.",15);
+            Function.Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal.", 15);
+            Function.Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh ", 15);
+            Function.Print("dan sebuah pintu tampak diantaranya.", 15);
             Console.ReadKey();
             Console.Clear();
-            Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal", 15);
-            Print("Tempat ini berbahaya dan kamu harus kabur dari tempat ini!", 15);
+            Function.Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal", 15);
+            Function.Print("Tempat ini berbahaya dan kamu harus kabur dari tempat ini!", 15);
             Console.ReadKey();
             Console.Clear();
             return p;
@@ -196,7 +214,15 @@ namespace MyApp
                             {
                                 if (player.id == id)
                                 {
-                                    return player;
+                                    if (player.key == 0)
+                                    {
+                                        newP = true;
+                                        return player;
+                                    }
+                                    else
+                                    {
+                                        return player;
+                                    }
                                 }
                             }
                             Console.WriteLine("Player tidak ditemukan");
@@ -221,7 +247,15 @@ namespace MyApp
                         {
                             if (player.name == data[0] || player.name!.ToLower() == data[0])
                             {
-                                return player;
+                                if (player.key == 0)
+                                {
+                                    newP = true;
+                                    return player;
+                                }
+                                else
+                                {
+                                    return player;
+                                }
                             }
                         }
                         Console.WriteLine("Player tidak ditemukan");
@@ -235,40 +269,6 @@ namespace MyApp
                     Console.ReadKey();
                 }
             }
-        }
-
-        public static void Print(string text, int speed = 40)
-        {
-            string path = Path.Combine(AppContext.BaseDirectory, "sounds", "text.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
-
-            if (OperatingSystem.IsWindows()) //checking if window
-            {
-                SoundPlayer player = new SoundPlayer(path);
-                player.PlayLooping();
-                foreach (char c in text)
-                {
-                    Console.Write(c);
-                    System.Threading.Thread.Sleep(speed);
-                }
-                player.Stop();
-            }
-            Console.WriteLine();
-        }
-
-        public static void ProgressBar(string barSymbol, decimal value, int size)//size for the amount of progress bar, value for the exp value
-        {
-            int differ = (int)(value * size);
-            for (int i = 0; i < size; i++)
-            {
-                if (i < differ)
-                    Console.Write(barSymbol);
-                else
-                    Console.Write("-");
-            }
-
-            // Result
-            // Exp :
-            // [========================-]
         }
     }
 

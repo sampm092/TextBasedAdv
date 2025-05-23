@@ -20,6 +20,7 @@ namespace MyApp
         public int level { get; set; } = 1;
         public int exp { get; set; } = 440;
         public int key { get; set; } = 0;
+        public int position { get; set; } = 0;
 
         public enum PLayerClass { Warrior, Knight, Alchemist }; //3 class for now
         public PLayerClass currentClass { get; set; } = PLayerClass.Warrior; //default class
@@ -70,7 +71,7 @@ namespace MyApp
                 exp -= LevelUpValue(); //resetting the exp value after Level Up
                 level++;
             }
-            Program.Print("Kamu naik level menjadi level " + level + " !");
+            Function.Print("Kamu naik level menjadi level " + level + " !");
         }
     }
 }

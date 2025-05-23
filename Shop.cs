@@ -41,7 +41,7 @@ namespace MyApp
                 Console.WriteLine(" Level           : " + p.level);
                 Console.WriteLine(" Exp : " );
                 Console.Write("[");
-                Program.ProgressBar("=", ProgressBarInt, 25);
+                Function.ProgressBar("=", ProgressBarInt, 25);
                 Console.WriteLine("]");
                 Console.WriteLine("                  " + + p.exp + "/" + p.LevelUpValue());
                 Console.WriteLine("-------------------------");
@@ -52,6 +52,7 @@ namespace MyApp
                 Console.WriteLine(" Potion          : " + p.potion);
                 Console.WriteLine(" Koin            : " + p.money);
                 Console.WriteLine(" Kunci           : " + p.key);
+                Console.WriteLine(" Posisi          : " + p.position);
                 Console.WriteLine(" Kesulitan       : " + p.mods);
                 Console.WriteLine("==========================");
                 Console.WriteLine(" Tingkatkan apa?        ");
@@ -105,7 +106,7 @@ namespace MyApp
             }
             else
             {
-                Program.Print("Kamu tidak memiliki cukup uang", 15);
+                Function.Print("Kamu tidak memiliki cukup uang", 15);
                 Console.ReadKey();
             }
 

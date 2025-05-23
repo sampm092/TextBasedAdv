@@ -51,6 +51,7 @@ namespace MyApp
                 Console.WriteLine(" Ketahanan       : " + p.defenseValue);
                 Console.WriteLine(" Potion          : " + p.potion);
                 Console.WriteLine(" Koin            : " + p.money);
+                Console.WriteLine(" Kunci           : " + p.key);
                 Console.WriteLine(" Kesulitan       : " + p.mods);
                 Console.WriteLine("==========================");
                 Console.WriteLine(" Tingkatkan apa?        ");

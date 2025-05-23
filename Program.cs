@@ -17,10 +17,41 @@ namespace MyApp
 
             player = Load(out bool newP);
             if (newP == true) Encounter.FirstEncounter();
-            while (mainLoop)
+
+            while (true)
             {
-                Encounter.RandomEncounter();
+            Print("Pilih jalan yang ingin kamu lewati: ", 15);
+            Console.WriteLine("Maju | Kanan | Shop");
+            string input1 = Console.ReadLine()!.ToLower();
+                if (input1 == "maju")
+                {
+                    Encounter.SecondEncounter();
+                    break;
+                }
+                else if (input1 == "kanan")
+                {
+                    Print("Ruangan ini sepertinya hanya ruangan biasa.", 15);
+                    Console.ReadKey();
+                    Encounter.RandomEncounter();
+                    break;
+                }
+                else if (input1 == "shop")
+                {
+                    Shop.LoadShop(player);
+                    Console.Clear();
+                    // break;
+                }
+                else
+                {
+                    Print("Masukkan input sesuai pilihan!");
+                }
             }
+
+            // while (mainLoop)
+            // {
+                
+            // }
+
         }
 
         static Player NewStart(int i)
@@ -82,12 +113,13 @@ namespace MyApp
             }
 
             Console.Clear();
-            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal", 15);
-            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh dan sebuah pintu tampak diantaranya", 15);
+            Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal.", 15);
+            Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh ", 15);
+            Print("dan sebuah pintu tampak diantaranya.",15);
             Console.ReadKey();
             Console.Clear();
             Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal", 15);
-            Print("Kamu harus kabur dari tempat ini!", 15);
+            Print("Tempat ini berbahaya dan kamu harus kabur dari tempat ini!", 15);
             Console.ReadKey();
             Console.Clear();
             return p;

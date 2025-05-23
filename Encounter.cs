@@ -7,11 +7,38 @@ namespace MyApp
         public static void FirstEncounter()
         {
             Program.Print("Kamu membuka pintu yang ternyata tidak dikunci.", 15);
-            Program.Print("Tanpa basa-basi, sesuatu datang ke arahmu dengan ujud memberikanmu celaka.", 15);
+            Program.Print("Tiba-tiba, suatu entitas maju ke arahmu tanpa basa-basi.", 15);
             Program.Print("Kamu tidak memiliki pilihan selain membela diri.", 15);
             Console.ReadKey();
             Console.Clear();
             Combat(false, "Troll", 1, 4);
+            Program.Print("Kamu melihat ke bawah dan menemukan sebuah kunci yang sepertinya jatuh", 15);
+            Program.Print("dari badan monster tadi.", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Program.Print("Kamu mendapatkan 1 buah kunci!.", 15);
+            Program.Print("Sepertinya kunci ini penting untuk keluar dari tempat ini.", 15);
+            Program.player.key += 1;
+            Console.ReadKey();
+            Console.Clear();
+            Program.Print("Kamu melangkah maju dan ternyata bertemu jalan bercabang.", 15);
+        }
+
+        public static void SecondEncounter()
+        {
+            Program.Print("Kamu melangkah maju menuju lorong dan tampaklah ruangan baru di depan.", 15);
+            Program.Print("Cahaya redup beberapa lilin menerangi sebagian ruangan.", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Program.Print("Dari tengah ruangan terlihat sosok makhluk yang sedang duduk dan bersiaga.", 15);
+            Program.Print("Entah karena instingnya, tiba-tiba dia melihat ke arah mu dan bersiap untuk menyerang!", 15);
+            Combat(false, "Ogre", 2, 5);
+            Program.Print("Kamu melihat ke bawah dan menemukan sebuah kunci lagi.", 15);
+            Program.Print("Kamu mendapatkan 1 buah kunci!.", 15);
+            Program.player.key += 1;
+            Console.ReadKey();
+            Console.Clear();
+            Program.Print("Kamu melangkah maju dan bertemu dengan jalan bercabang lagi.", 15);
         }
 
         public static void BasicEncounter()
@@ -190,6 +217,7 @@ namespace MyApp
                 Program.player.LevelUp();
             }
             Console.ReadKey();
+            Console.Clear();
         }
 
         public static string GetName()
@@ -217,7 +245,7 @@ namespace MyApp
                 case 2:
                     return "Big Bug";
                 case 3:
-                    return "S. Golem";
+                    return "Mini Golem";
             }
             return "Goblin"; //default
         }

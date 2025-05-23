@@ -194,6 +194,20 @@ namespace MyApp
 
         public static string GetName()
         {
+            if (IsChristmas())
+            {
+                switch (rand.Next(0, 4))
+                {
+                    case 0:
+                        return "Snow Golem";
+                    case 1:
+                        return "Pine Treant";
+                    case 2:
+                        return "Mad Deer";
+                    case 3:
+                        return "Crazy Santa";
+                }
+            }
             switch (rand.Next(0, 4))
             {
                 case 0:
@@ -206,6 +220,14 @@ namespace MyApp
                     return "S. Golem";
             }
             return "Goblin"; //default
+        }
+
+        public static bool IsChristmas()  //adding event
+        {
+            DateTime time = DateTime.Now;
+            if (time.Month == 12 && time.Day >= 15)
+                return true;
+            return false;
         }
     }
 }

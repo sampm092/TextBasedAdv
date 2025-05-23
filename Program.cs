@@ -19,50 +19,101 @@ namespace MyApp
 
             while (true)
             {
-                if (player.position == 1)
+                switch (player.position)
                 {
-                    Function.Print("Pilih jalan yang ingin kamu lewati: ", 15);
-                    Console.WriteLine("Maju | Kanan | Shop");
-                    string input1 = Console.ReadLine()!.ToLower();
-                    if (input1 == "maju")
-                    {
-                        Encounter.SecondEncounter();
-                        player.position = 21;
-                        break;
-                    }
-                    else if (input1 == "kanan")
-                    {
-                        Function.Print("Ruangan ini sepertinya hanya ruangan biasa.", 15);
-                        Console.ReadKey();
-                        Encounter.RandomEncounter();
-                        player.position = 22;
-                        
-                    }
-                    else if (input1 == "shop")
-                    {
-                        Shop.LoadShop(player);
-                        Console.Clear();
-                        // break;
-                    }
-                    else
-                    {
-                        Function.Print("Masukkan input sesuai pilihan!");
-                    }
-                }
-                if (player.position == 22)
-                {
-                    while (true)
-                    {
+                    case 1:
                         Function.Print("Pilih jalan yang ingin kamu lewati: ", 15);
-                        Console.WriteLine("Maju | Kiri | Shop");
-                        string input2 = Console.ReadLine()!.ToLower();
-                        if (input2 == "shop")
+                        Console.WriteLine("Maju | Kanan | Shop");
+                        string input1 = Console.ReadLine()!.ToLower();
+
+                        switch (input1)
                         {
-                            Shop.LoadShop(player);
-                            Console.Clear();
+                            case "maju":
+                                Encounter.SecondEncounter();
+                                player.position = 21;
+                                break;
+
+                            case "kanan":
+                                Function.Print("Ruangan ini sepertinya hanya ruangan biasa.", 15);
+                                Console.ReadKey();
+                                Encounter.RandomEncounter();
+                                player.position = 22;
+                                break;
+
+                            case "shop":
+                                Shop.LoadShop(player);
+                                Console.Clear();
+                                break;
+
+                            default:
+                                Function.Print("Masukkan input sesuai pilihan!");
+                                break;
                         }
-                    }
+                        break;
+
+                    case 22:
+                        while (true)
+                        {
+                            Function.Print("Pilih jalan yang ingin kamu lewati: ", 15);
+                            Console.WriteLine("Maju | Kiri | Shop");
+                            string input2 = Console.ReadLine()!.ToLower();
+
+                            switch (input2)
+                            {
+                                case "shop":
+                                    Shop.LoadShop(player);
+                                    Console.Clear();
+                                    break;
+
+                                case "maju":
+                                    player.position = 23;
+                                    Encounter.ChestEncounter();
+                                    break;
+
+                                case "kiri":
+                                    Encounter.SecondEncounter();
+                                    // player.position = 21;
+                                    break;
+
+
+                                default:
+                                    Function.Print("Masukkan input sesuai pilihan!");
+                                    break;
+                            }
+                            break;
+                        }
+                        break;
+                    case 23:
+                        while (true)
+                        {
+                            Console.WriteLine("Maju | Kanan | Shop");
+                            string input = Console.ReadLine()!.ToLower();
+
+                            switch (input)
+                            {
+                                case "maju":
+
+                                    break;
+                                case "kanan":
+                                    Encounter.SecondEncounter();
+                                    // player.position = 21;
+                                    break;
+
+                                case "shop":
+                                    Shop.LoadShop(player);
+                                    Console.Clear();
+                                    break;
+                                default:
+                                    Function.Print("Masukkan input sesuai pilihan!");
+                                    break;
+
+                            }
+                            break;
+                        }
+                        break;
+                        // Add other cases as needed
                 }
+
             }
 
             // while (mainLoop)

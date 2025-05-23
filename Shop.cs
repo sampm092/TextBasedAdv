@@ -50,7 +50,6 @@ namespace MyApp
                 Console.WriteLine(" Kekuatan serang : " + (p.attackValue + p.weaponValue));
                 Console.WriteLine(" Ketahanan       : " + p.defenseValue);
                 Console.WriteLine(" Potion          : " + p.potion);
-                Console.WriteLine(" Koin            : " + p.money);
                 Console.WriteLine(" Kunci           : " + p.key);
                 Console.WriteLine(" Posisi          : " + p.position);
                 Console.WriteLine(" Kesulitan       : " + p.mods);

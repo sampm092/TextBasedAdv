@@ -32,7 +32,7 @@ namespace MyApp
             Console.ReadKey();
             Console.Clear();
             Function.Print("Dari tengah ruangan terlihat sosok makhluk yang sedang duduk dan bersiaga.", 15);
-            Function.Print("Entah karena instingnya, tiba-tiba dia melihat ke arah mu dan bersiap untuk menyerang!", 15);
+            Function.Print("Entah karena instingnya, tiba-tiba dia melihat ke arahmu dan bersiap untuk menyerang!", 15);
             Combat(false, "Ogre", 2, 5);
             Function.Print("Kamu melihat ke bawah dan menemukan sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
@@ -41,6 +41,26 @@ namespace MyApp
             Console.ReadKey();
             Console.Clear();
             Function.Print("Kamu melangkah maju dan bertemu dengan jalan bercabang lagi.", 15);
+        }
+
+        public static void ChestEncounter()
+        {
+            Function.Print("Kamu sampai di ruangan kosong, tidak jalan lain setelah ruangan ini. ", 15);
+            Function.Print("Kamu melihat sebuah peti di ujung ruangan, tetapi ada yang menjaga peti itu. ", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Makhluk itu melihatmu dan menyerang!", 15);
+            Combat(false, "Cobra", 2, 7);
+            Function.Print("Kamu berjalan ke arah peti itu dan membukanya.", 15);
+            Function.Print("Tampaklah ratusan keping emas di dalamnya.", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Kamu segera memasukkan semuanya ke penyimpananmu.");
+            Function.Print("Kamu mendapatkan 300 keping koin!");
+            Program.player.money += 300;
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Kamu melangkah kembali ke ruangan sebelumnya.", 15);
         }
 
         public static void BasicEncounter()

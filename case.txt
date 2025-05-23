@@ -1,0 +1,22 @@
+copypaste
+case :
+                        while (true)
+                        {
+                            Function.Print("Pilih jalan yang ingin kamu lewati: ", 15);
+                            Console.WriteLine("Maju | Kiri | Shop");
+                            string input = Console.ReadLine()!.ToLower();
+
+                            switch (input)
+                            {
+                                case :
+                                
+                                    break;
+                                case :
+
+                                    break;
+                                default:
+
+                                    break;
+
+                            }
+                        }

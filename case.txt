@@ -1,22 +1,28 @@
-copypaste
 case :
                         while (true)
                         {
-                            Function.Print("Pilih jalan yang ingin kamu lewati: ", 15);
-                            Console.WriteLine("Maju | Kiri | Shop");
+                            Console.WriteLine("Maju | Kanan | Shop");
                             string input = Console.ReadLine()!.ToLower();
 
                             switch (input)
                             {
-                                case :
-                                
-                                    break;
-                                case :
+                                case "maju":
 
+                                    break;
+                                case "kanan":
+                                    
+                                    
+                                    break;
+
+                                case "shop":
+                                    Shop.LoadShop(player);
+                                    Console.Clear();
                                     break;
                                 default:
-
+                                    Function.Print("Masukkan input sesuai pilihan!");
                                     break;
 
                             }
+                            break;
                         }
+                        break;

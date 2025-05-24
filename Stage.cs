@@ -7,7 +7,7 @@ namespace MyApp
             [11] = new Room
             {
                 Id = 11,
-                Description = "Pilih jalan yang ingin kamu lewati: Maju | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 31,
@@ -32,21 +32,35 @@ namespace MyApp
                 Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
                 Paths = new Dictionary<string, int>
                 {
-                    ["maju"] = 11,
+                    ["maju"] = 12,
                     ["kanan"] = 32
                 },
-                Encounter = () => Encounter.SecondEncounter()
+                Encounter = () => Encounter.ChestEncounter()
             },
             [31] = new Room
             {
                 Id = 31,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
                 Paths = new Dictionary<string, int>
                 {
-                    // Add transitions here
-                }
+                    ["kiri"] = 41,
+                    ["kanan"] = 22
+                },
+                Encounter = () => Encounter.SecondEncounter()
             },
-            // Add more rooms...
+            [32] = new Room
+            {
+                Id = 32,
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Maju | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["kiri"] = 13,
+                    ["maju"] = 41
+                },
+                Encounter = () => Encounter.SecondEncounter()
+            },
+
+
         };
 
         public static void Stage1()
@@ -69,8 +83,9 @@ namespace MyApp
 
                 if (currentRoom.Paths.TryGetValue(input, out int nextPosition))
                 {
-                    currentRoom.Encounter?.Invoke();
-                    Program.player.position = nextPosition;
+                    Program.player.position = nextPosition; // Move first
+                    Room nextRoom = map[nextPosition];      // Get the new room
+                    nextRoom.Encounter?.Invoke();           // Trigger encounter in the new room
                 }
                 else
                 {

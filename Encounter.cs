@@ -4,7 +4,7 @@ namespace MyApp
     {
         static Random rand = new Random();
 
-        public static void FirstEncounter()
+        public static void FirstEncounter() //untuk ruangan 1
         {
             Function.Print("Kamu membuka pintu yang ternyata tidak dikunci.", 15);
             Function.Print("Tiba-tiba, suatu entitas maju ke arahmu tanpa basa-basi.", 15);
@@ -19,13 +19,13 @@ namespace MyApp
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Function.Print("Sepertinya kunci ini penting untuk keluar dari tempat ini.", 15);
             Program.player.key += 1;
-            Program.player.position = 1;
+            Program.player.position = 11;
             Console.ReadKey();
             Console.Clear();
             Function.Print("Kamu melangkah maju dan ternyata bertemu jalan bercabang.", 15);
         }
 
-        public static void SecondEncounter()
+        public static void SecondEncounter() //untuk ruangan 3
         {
             Function.Print("Kamu melangkah maju menuju lorong dan tampaklah ruangan baru di depan.", 15);
             Function.Print("Cahaya redup beberapa lilin menerangi sebagian ruangan.", 15);
@@ -37,15 +37,30 @@ namespace MyApp
             Function.Print("Kamu melihat ke bawah dan menemukan sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Program.player.key += 1;
-            Program.player.position = 21;
             Console.ReadKey();
             Console.Clear();
             Function.Print("Kamu melangkah maju dan bertemu dengan jalan bercabang lagi.", 15);
         }
 
-        public static void ChestEncounter()
+        public static void ThirdEncounter() //untuk ruangan 4
         {
-            Function.Print("Kamu sampai di ruangan kosong, tidak jalan lain setelah ruangan ini. ", 15);
+            Function.Print("Kadksajdajdjsakdjan.", 15);
+            Function.Print("Cahaya redup beberapa lilin menerangi sebagian ruangan.", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Dari tengah ruangan terlihat sosok makhluk yang sedang duduk dan bersiaga.", 15);
+            Function.Print("Entah karena instingnya, tiba-tiba dia melihat ke arahmu dan bersiap untuk menyerang!", 15);
+            Combat(false, "Ogre", 2, 5);
+            Function.Print("Kamu melihat ke bawah dan menemukan sebuah kunci lagi.", 15);
+            Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
+            Program.player.key += 1;
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Kamu melangkah maju dan bertemu dengan jalan bercabang lagi.", 15);
+        }
+        public static void ChestEncounter() //ruangan chest
+        {
+            Function.Print("Kamu sampai di ruangan kosong, tidak ada jalan lain setelah ruangan ini. ", 15);
             Function.Print("Kamu melihat sebuah peti di ujung ruangan, tetapi ada yang menjaga peti itu. ", 15);
             Console.ReadKey();
             Console.Clear();
@@ -67,7 +82,17 @@ namespace MyApp
         {
 
             Console.Clear();
-            Function.Print("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerangmu...", 20);
+            Function.Print("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerangmu!", 15);
+            Console.ReadKey();
+            Combat(true, "", 0, 0);
+        }
+
+        public static void ClearedEncounter()
+        {
+            Console.Clear();
+            Function.Print("Kamu melangkah ke ruangan yang ternyata terlihat familiar.", 15);
+            Function.Print("Ruangan ini adalah ruangan yang sudah kamu jelajahi.", 15);
+            Function.Print("Meskipun begitu, di balik kegelapan ruangan, sosok makhluk menyerangmu!", 15);
             Console.ReadKey();
             Combat(true, "", 0, 0);
         }

@@ -4,6 +4,16 @@ namespace MyApp
     {
         static Dictionary<int, Room> map = new Dictionary<int, Room>
         {
+            [0] = new Room
+            {
+                Id = 0,
+                Description = "Pilih jalan yang ingin kamu lewati: \nKembali | Rest | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["kembali"] = 31
+                },
+                Encounter = () => Encounter.RoomZero()
+            },
             [11] = new Room
             {
                 Id = 11,
@@ -18,13 +28,24 @@ namespace MyApp
             [12] = new Room
             {
                 Id = 12,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
                 Paths = new Dictionary<string, int>
                 {
                     ["kiri"] = 0,
                     ["kanan"] = 31
                 },
                 Encounter = () => Encounter.RandomEncounter()
+            },
+            [13] = new Room
+            {
+                Id = 13,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["kiri"] = 21,
+                    ["maju"] = 0
+                },
+                Encounter = () => Encounter.ClearedEncounter()
             },
             [21] = new Room
             {
@@ -103,6 +124,16 @@ namespace MyApp
                     continue;
                 }
 
+                if (input == "rest")
+                {
+                    Console.Clear();
+                    Program.player.health = Program.player.maxHealth;
+                    Function.Print("Kamu beristirahat untuk memulihkan kembali tenagamu.",15);
+                    Console.ReadKey();
+                    Console.Clear();
+                    continue;
+                }
+
                 if (currentRoom.Paths.TryGetValue(input, out int nextPosition))
                 {
                     Program.player.position = nextPosition; // Move first
@@ -114,12 +145,13 @@ namespace MyApp
                     }
                     else
                     {
-                        Encounter.RandomEncounter(); // For repeated visits
+                        Encounter.ClearedEncounter(); // For repeated visits
                     }
                 }
                 else
                 {
                     Function.Print("Masukkan input sesuai pilihan!");
+                    Console.Clear();
                 }
             }
         }

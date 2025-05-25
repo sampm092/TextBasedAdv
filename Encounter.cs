@@ -78,6 +78,15 @@ namespace MyApp
             Function.Print("Kamu melangkah kembali ke ruangan sebelumnya.", 15);
         }
 
+        public static void RoomZero()
+        {
+            Console.Clear();
+            Function.Print("Kamu melangkah ke ruangan yang ternyata terlihat familiar.", 15);
+            Function.Print("Ruangan ini adalah ruangan pertama dimana kamu pertama sekali bangun.", 15);
+            Console.ReadKey();
+            Console.Clear();
+        }
+
         public static void BasicEncounter()
         {
 

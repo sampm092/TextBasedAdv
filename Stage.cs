@@ -102,6 +102,28 @@ namespace MyApp
                 },
                 Encounter = () => Encounter.SecondEncounter()
             },
+            [33] = new Room
+            {
+                Id = 33,
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["kiri"] = 22,
+                    ["kanan"] = 13
+                },
+                Encounter = () => Encounter.ClearedEncounter()
+            },
+            [41] = new Room
+            {
+                Id = 41,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 43,
+                    ["kanan"] = 51
+                },
+                Encounter = () => Encounter.ThirdEncounter()
+            },
 
 
         };

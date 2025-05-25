@@ -44,14 +44,21 @@ namespace MyApp
 
         public static void ThirdEncounter() //untuk ruangan 4
         {
-            Function.Print("Kadksajdajdjsakdjan.", 15);
-            Function.Print("Cahaya redup beberapa lilin menerangi sebagian ruangan.", 15);
+            Function.Print("Setelah melewati lorong tadi, tampaklah ruangan baru di depanmu.", 15);
+            Function.Print("Sama seperti ruangan sebelumnya, tempat ini dipenuhi dengan cahaya redup lilin.", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Dari tengah ruangan terlihat sosok makhluk yang sedang duduk dan bersiaga.", 15);
-            Function.Print("Entah karena instingnya, tiba-tiba dia melihat ke arahmu dan bersiap untuk menyerang!", 15);
-            Combat(false, "Ogre", 2, 5);
-            Function.Print("Kamu melihat ke bawah dan menemukan sebuah kunci lagi.", 15);
+            Function.Print("Bedanya, kamu tidak melihat siapapun menjaga ruangan ini.", 15);
+            Function.Print("Kamu berjalan ke tengah ruangan dan tiba-tiba terdengar suara aneh!", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Crack! Dari bawah kakimu suara itu terdengar, spontan kamu melompat mundur", 15);
+            Function.Print("Dari permukaan tanah muncul makhluk cukup besar berbentuk manusia tanah.", 15);
+            Function.Print("Dan dia bersiap menyerangmu!", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Combat(false, "Ember Golem", 2, 5);
+            Function.Print("Dari dalam tubuhnya keluar sebuah sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Program.player.key += 1;
             Console.ReadKey();

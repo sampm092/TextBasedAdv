@@ -3,7 +3,7 @@ namespace MyApp
 {
     public class Function
     {
-
+        public static Random rand = new Random();   
         public static void Print(string text, int speed = 40)
         {
             string path = Path.Combine(AppContext.BaseDirectory, "sounds", "text.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
@@ -36,6 +36,42 @@ namespace MyApp
             // Result
             // Exp :
             // [========================-]
+        }
+
+        public static int GetHealth()  //randomize enemy health
+        {
+            
+            int upper = 2 * Program.player.mods + 7;
+            int lower = Program.player.mods + 3;
+            return rand.Next(lower, upper);
+        }
+
+        public static int GetPower() //randomize enemy power
+        {
+            int upper = 2 * Program.player.mods + 3;
+            int lower = Program.player.mods + 1;
+            return rand.Next(lower, upper);
+        }
+
+        public static int GetDefense() //randomize enemy power
+        {
+            int upper = 1 * Program.player.mods + 1;
+            int lower = Program.player.mods;
+            return rand.Next(lower, upper);
+        }
+
+        public static int GetMoney() //randomize money dropped
+        {
+            int upper = 15 * Program.player.mods + 50;
+            int lower = 10 * Program.player.mods + 10;
+            return rand.Next(lower, upper);
+        }
+
+        public static int GetXP() //randomize money dropped
+        {
+            int upper = 25 * Program.player.mods + 45;
+            int lower = 10 * Program.player.mods + 15;
+            return rand.Next(lower, upper);
         }
 
     }

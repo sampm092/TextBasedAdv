@@ -11,7 +11,7 @@ namespace MyApp
             Function.Print("Kamu tidak memiliki pilihan selain membela diri.", 15);
             Console.ReadKey();
             Console.Clear();
-            Combat(false, "Troll", 1, 4);
+            Combat(false, "Troll", 1, 4,0);
             Function.Print("Kamu melihat ke bawah dan menemukan sebuah kunci yang sepertinya jatuh", 15);
             Function.Print("dari badan monster tadi.", 15);
             Console.ReadKey();
@@ -33,7 +33,7 @@ namespace MyApp
             Console.Clear();
             Function.Print("Dari tengah ruangan terlihat sosok makhluk yang sedang duduk dan bersiaga.", 15);
             Function.Print("Entah karena instingnya, tiba-tiba dia melihat ke arahmu dan bersiap untuk menyerang!", 15);
-            Combat(false, "Ogre", 2, 5);
+            Combat(false, "Ogre", 2, 5,1);
             Function.Print("Kamu melihat ke bawah dan menemukan sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Program.player.key += 1;
@@ -57,7 +57,7 @@ namespace MyApp
             Function.Print("Dan dia bersiap menyerangmu!", 15);
             Console.ReadKey();
             Console.Clear();
-            Combat(false, "Ember Golem", 2, 5);
+            Combat(false, "Ember Golem", 1,7,2);
             Function.Print("Dari dalam tubuhnya keluar sebuah sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Program.player.key += 1;
@@ -72,7 +72,7 @@ namespace MyApp
             Console.ReadKey();
             Console.Clear();
             Function.Print("Makhluk itu melihatmu dan menyerang!", 15);
-            Combat(false, "Cobra", 2, 7);
+            Combat(false, "Cobra", 2, 7,1);
             Function.Print("Kamu berjalan ke arah peti itu dan membukanya.", 15);
             Function.Print("Tampaklah ratusan keping emas di dalamnya.", 15);
             Console.ReadKey();
@@ -100,7 +100,7 @@ namespace MyApp
             Console.Clear();
             Function.Print("Kamu melangkah maju dan dari balik bayangan kegelapan muncul sosok yang menyerangmu!", 15);
             Console.ReadKey();
-            Combat(true, "", 0, 0);
+            Combat(true, "", 0, 0,0);
         }
 
         public static void ClearedEncounter()
@@ -110,7 +110,7 @@ namespace MyApp
             Function.Print("Ruangan ini adalah ruangan yang sudah kamu jelajahi.", 15);
             Function.Print("Meskipun begitu, di balik kegelapan ruangan, sosok makhluk menyerangmu!", 15);
             Console.ReadKey();
-            Combat(true, "", 0, 0);
+            Combat(true, "", 0, 0,0);
         }
 
         public static void RandomEncounter()
@@ -124,23 +124,26 @@ namespace MyApp
             }
         }
 
-        public static void Combat(bool random, string name, int power, int health)
+        public static void Combat(bool random, string name, int power, int health, int defense)
         {
             string n = "";
             int p = 0;
             int h = 0;
+            int d = 0;
 
             if (random)
             {
                 n = GetName();
-                p = Program.player.GetPower();
-                h = Program.player.GetHealth();
+                p = Function.GetPower();
+                h = Function.GetHealth();
+                d = Function.GetDefense();
             }
             else
             {
                 n = name;
                 p = power;
                 h = health;
+                d = defense;
             }
 
             while (h > 0)
@@ -167,7 +170,7 @@ namespace MyApp
                     {
                         pDamageValue = 0;
                     }
-                    int pAttack = rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue);
+                    int pAttack = rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue) - d;
                     Function.Print("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah", 5);
                     Program.player.health -= pDamageValue;
                     h -= pAttack;
@@ -192,7 +195,6 @@ namespace MyApp
                 else if (tempCommand.ToLower() == "p" || tempCommand.ToLower() == "potion")
                 //Potion Command
                 {
-
                     if (Program.player.potion == 0)
                     {
                         Function.Print("Kamu kehabisan potion untuk digunakan dan " + n + "berkesempatan untuk menyerangmu yang sedang kebingungan", 5);
@@ -269,8 +271,8 @@ namespace MyApp
                 }
             }
 
-            int goldValue = Program.player.GetMoney();
-            int expValue = Program.player.GetXP();
+            int goldValue = Function.GetMoney();
+            int expValue = Function.GetXP();
             Function.Print("Kamu berhasil mengalahkan " + n + ". Kamu mendapatkan " + goldValue + " koin!", 5);
             Function.Print("Kamu mendapatkan " + expValue + " poin exp!", 5);
             Program.player.money += goldValue;
@@ -285,20 +287,20 @@ namespace MyApp
 
         public static string GetName()
         {
-            if (IsChristmas())
-            {
-                switch (rand.Next(0, 4))
-                {
-                    case 0:
-                        return "Snow Golem";
-                    case 1:
-                        return "Pine Treant";
-                    case 2:
-                        return "Mad Deer";
-                    case 3:
-                        return "Crazy Santa";
-                }
-            }
+            // if (IsChristmas())
+            // {
+            //     switch (rand.Next(0, 4))
+            //     {
+            //         case 0:
+            //             return "Snow Golem";
+            //         case 1:
+            //             return "Pine Treant";
+            //         case 2:
+            //             return "Mad Deer";
+            //         case 3:
+            //             return "Crazy Santa";
+            //     }
+            // }
             switch (rand.Next(0, 4))
             {
                 case 0:
@@ -313,12 +315,12 @@ namespace MyApp
             return "Goblin"; //default
         }
 
-        public static bool IsChristmas()  //adding event
-        {
-            DateTime time = DateTime.Now;
-            if (time.Month == 12 && time.Day >= 15)
-                return true;
-            return false;
-        }
+        // public static bool IsChristmas()  //adding event
+        // {
+            // DateTime time = DateTime.Now;
+            // if (time.Month == 12 && time.Day >= 15)
+            //     return true;
+            // return false;
+        // }
     }
 }

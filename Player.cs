@@ -3,9 +3,6 @@ namespace MyApp
     [Serializable]
     public class Player
     {
-        Random rand = new Random();
-
-
         //get set is for json serialization
         public int id { get; set; }
         public string? name { get; set; }
@@ -18,7 +15,7 @@ namespace MyApp
         public int potion { get; set; } = 3;
         public int mods { get; set; } = 0; //for modifying power level
         public int level { get; set; } = 1;
-        public int exp { get; set; } = 440;
+        public int exp { get; set; } = 50;
         public int key { get; set; } = 0;
         public int position { get; set; } = 0;
 
@@ -27,7 +24,7 @@ namespace MyApp
 
         public int LevelUpValue()
         {
-            return 50 * level + 400; //exp needed for level up
+            return 50 * level + 100; //exp needed for level up
         }
 
         public bool CanLevelUp()

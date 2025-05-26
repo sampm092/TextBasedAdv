@@ -124,6 +124,40 @@ namespace MyApp
                 },
                 Encounter = () => Encounter.ThirdEncounter()
             },
+            [42] = new Room
+            {
+                Id = 42,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 33,
+                    ["kiri"] = 51
+                },
+                Encounter = () => Encounter.ClearedEncounter()
+            },
+            [43] = new Room
+            {
+                Id = 43,
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["kiri"] = 33,
+                    ["kanan"] = 42
+                },
+                Encounter = () => Encounter.ChestEncounter2()
+            },
+            [51] = new Room
+            {
+                Id = 51,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 61,
+                    ["kiri"] = 52,
+                    ["kanan"] = 54
+                },
+                Encounter = () => Encounter.FouthEncounter()
+            },
 
 
         };

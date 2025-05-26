@@ -65,6 +65,26 @@ namespace MyApp
             Console.Clear();
             Function.Print("Kamu melangkah maju dan bertemu dengan jalan bercabang lagi.", 15);
         }
+        
+        public static void FouthEncounter() //untuk ruangan 5
+        {
+            Function.Print("Kamu melangkah ke depan dan tampaklah ruangan baru lagi.", 15);
+            Function.Print("Ruangan ini terang akibat banyaknya lilin.", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Sama seperti ruangan-ruangan sebelumnya, di tengah ruangan bersiaga makhluk lainnya.", 15);
+            Function.Print("Dia sudah mempersiapkan dirinya seperti memang mengharapkan kedatanganmu.", 15);
+            Function.Print("Kamu juga mempersiapkan senjata dan maju untuk menyerang!", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Combat(false, "Cyclops", 2,10,0);
+            Function.Print("Kamu mendapatkan 1 buah kunci lagi!.", 15);
+            Program.player.key += 1;
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Kamu melangkah maju dan kali ini bertemu dengan jalan bercabang tiga.", 15);
+        }
+
         public static void ChestEncounter() //ruangan chest
         {
             Function.Print("Kamu sampai di ruangan kosong, tidak ada jalan lain setelah ruangan ini. ", 15);
@@ -72,7 +92,27 @@ namespace MyApp
             Console.ReadKey();
             Console.Clear();
             Function.Print("Makhluk itu melihatmu dan menyerang!", 15);
-            Combat(false, "Cobra", 2, 7,1);
+            Combat(false, "Cobra", 2, 7, 1);
+            Function.Print("Kamu berjalan ke arah peti itu dan membukanya.", 15);
+            Function.Print("Tampaklah ratusan keping emas di dalamnya.", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Kamu segera memasukkan semuanya ke penyimpananmu.");
+            Function.Print("Kamu mendapatkan 300 keping koin!");
+            Program.player.money += 300;
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Kamu melangkah kembali ke ruangan sebelumnya.", 15);
+        }
+
+        public static void ChestEncounter2() //ruangan chest
+        {
+            Function.Print("Kamu sampai di ruangan kosong, tidak ada jalan lain setelah ruangan ini. ", 15);
+            Function.Print("Kamu melihat sebuah peti di ujung ruangan, tetapi ada yang menjaga peti itu. ", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Makhluk itu melihatmu dan menyerang!", 15);
+            Combat(false, "Shadow Fighter", 3, 4,2);
             Function.Print("Kamu berjalan ke arah peti itu dan membukanya.", 15);
             Function.Print("Tampaklah ratusan keping emas di dalamnya.", 15);
             Console.ReadKey();

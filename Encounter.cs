@@ -97,8 +97,8 @@ namespace MyApp
             Function.Print("Tampaklah ratusan keping emas di dalamnya.", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Kamu segera memasukkan semuanya ke penyimpananmu.");
-            Function.Print("Kamu mendapatkan 300 keping koin!");
+            Function.Print("Kamu segera memasukkan semuanya ke penyimpananmu.",15);
+            Function.Print("Kamu mendapatkan 300 keping koin!",15);
             Program.player.money += 300;
             Console.ReadKey();
             Console.Clear();

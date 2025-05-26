@@ -34,7 +34,7 @@ namespace MyApp
                     ["kiri"] = 0,
                     ["kanan"] = 31
                 },
-                Encounter = () => Encounter.RandomEncounter()
+                Encounter = () => Encounter.ClearedEncounter()
             },
             [13] = new Room
             {
@@ -56,7 +56,7 @@ namespace MyApp
                     ["maju"] = 23,
                     ["kiri"] = 32
                 },
-                Encounter = () => Encounter.SecondEncounter()
+                Encounter = () => Encounter.RandomEncounter()
             },
             [22] = new Room
             {
@@ -100,7 +100,7 @@ namespace MyApp
                     ["kiri"] = 13,
                     ["maju"] = 41
                 },
-                Encounter = () => Encounter.SecondEncounter()
+                Encounter = () => Encounter.SecondEncounter() //fix double encounter issue
             },
             [33] = new Room
             {
@@ -197,7 +197,7 @@ namespace MyApp
                     if (!nextRoom.Visited)
                     {
                         nextRoom.Encounter?.Invoke(); // First-time special encounter
-                        nextRoom.Visited = true;      // Mark as visited
+                        nextRoom.Visited = true;      // Mark as visited BUT GOT RESET every time you quit
                     }
                     else
                     {

@@ -100,29 +100,32 @@ namespace MyApp
             Console.ReadKey();
             Console.Clear();
             Function.Print("'Di ruangan berikutnya, terdapat raksasa yang tidak dapat ku lawan.", 15);
-            Function.Print("Tadinya di ruangan ini dan di ruangan sebelah terdapat enam makhluk yang menjaga enam kunci'", 15);
+            Function.Print(" Tadinya di ruangan ini dan di ruangan sebelah terdapat enam makhluk yang menjaga enam kunci'", 15);
             Console.ReadKey();
             Console.Clear();
             Function.Print("'Aku sudah mengalahkan mereka dan bersiap untuk ke ruangan selanjutnya.", 15);
-            Function.Print("Tetapi ketika aku melihat makhluk yang ada di ruangan berikutnya.", 15);
-            Function.Print("Semangat juangku bagaikan terserap habis. Oleh sebab itu aku menunggu di sini.'", 15);
+            Function.Print(" Tetapi ketika aku melihat makhluk yang ada di ruangan berikutnya.", 15);
+            Function.Print(" Semangat juangku bagaikan terserap habis. Oleh sebab itu aku menunggu di sini.'", 15);
             Console.ReadKey();
             Console.Clear();
             Function.Print("'Menantikan orang yang lebih layak untuk maju ke sana untuk menghabisi monster itu.", 15);
-            Function.Print("Aku akan menguji siapapun yang ingin maju ke sana dan juga akan memberikan keenam kunci ini.'", 15);
+            Function.Print(" Aku akan menguji siapapun yang ingin maju ke sana dan juga akan memberikan keenam kunci ini.'", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("'Apa kau memiliki nyali untuk menantangku?' [Y/T]", 15);
-            string input3 = Console.ReadLine()!.ToLower();
             while (true)
             {
+                Function.Print("'Tidak ada jalan kembali setelah ini.", 15);
+                Function.Print(" Apa kau memiliki nyali untuk menantangku?' [Y/T]", 15);
+                string input3 = Console.ReadLine()!.ToLower();
                 if (input3 == "y")
                 {
                     Function.Print("'Bersiaplah!'", 15);
+                    Console.ReadKey();
+                    Console.Clear();
                     Combat(false, "Fallen Knight", 3, 15, 2);
-                    Function.Print("'Kau sudah layak untuk lanjut. Ambillah kunci-kunci ini.'", 15);
+                    Function.Print("'Kau sudah layak untuk lanjut. Ambillah kunci-kunci ini.", 15);
                     Program.player.key += 6;
-                    Function.Print("'Kau membutuhkan sepuluh untuk membuka pintu ruangan terakhir.'", 15);
+                    Function.Print(" Kau membutuhkan sepuluh untuk membuka pintu ruangan terakhir.'", 15);
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -137,9 +140,48 @@ namespace MyApp
                 {
                     Function.Print("Masukkan input sesuai pilihan!");
                     Console.Clear();
-                    break;
                 }
             }
+        }
+
+        public static void FifthEncounterTwo() //untuk ruangan 6 setelah ditanya
+        {
+            Function.Print("'Kau kembali.", 15);
+            while (true)
+            {
+                Function.Print("'Tidak ada jalan kembali setelah ini.", 15);
+                Function.Print(" Apa kau memiliki nyali untuk menantangku?' [Y/T]", 15);
+                string input3 = Console.ReadLine()!.ToLower();
+                if (input3 == "y")
+                {
+                    Function.Print("'Bersiaplah!'", 15);
+                    Console.ReadKey();
+                    Console.Clear();
+                    Combat(false, "Fallen Knight", 3, 15, 2);
+                    Function.Print("'Kau sudah layak untuk lanjut. Ambillah kunci-kunci ini.", 15);
+                    Program.player.key += 6;
+                    Function.Print(" Kau membutuhkan sepuluh untuk membuka pintu ruangan terakhir.'", 15);
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+                }
+                else if (input3 == "t")
+                {
+                    Function.Print("'Kembalilah ketika kau sudah siap!'", 15);
+                    Program.player.position = 53;
+                    break;
+                }
+                else
+                {
+                    Function.Print("Masukkan input sesuai pilihan!");
+                    Console.Clear();
+                }
+            }
+        }
+
+        public static void BossEncounter() //ruangan boss
+        {
+
         }
 
         public static void ChestEncounter() //ruangan chest
@@ -267,7 +309,10 @@ namespace MyApp
                     {
                         pDamageValue = 0;
                     }
-                    int pAttack = rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue) - d;
+                    int attackrangeup = Program.player.weaponValue + Program.player.attackValue;
+                    int attackrangbot = attackrangeup - 2;
+                    if (attackrangbot <= 0) attackrangbot = 0;
+                    int pAttack = rand.Next(attackrangbot, attackrangeup) - d;
                     if (pAttack < 0)
                     {
                         pAttack = 0;
@@ -339,7 +384,7 @@ namespace MyApp
                     }
                 }
                 else if (tempCommand.ToLower() == "r" || tempCommand.ToLower() == "run")
-                //Run Command
+                //Run Command, make this run to previous map, not to shop
                 {
                     if (rand.Next(0, 2) == 0)
                     {

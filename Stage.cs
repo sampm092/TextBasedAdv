@@ -179,7 +179,7 @@ namespace MyApp
                     ["maju"] = 43,
                     ["kiri"] = 54,
                     ["kanan"] = 52,
-                    ["kembali"] = 61 //could be simplified, without the dialogue
+                    ["kembali"] = 611 //could be simplified, without the dialogue
                 },
                 Encounter = () => Encounter.ClearedEncounter()
             },
@@ -206,6 +206,16 @@ namespace MyApp
                 },
                 Encounter = () => Encounter.FifthEncounter()
             },
+            [611] = new Room
+            {
+                Id = 611,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 1,
+                },
+                Encounter = () => Encounter.FifthEncounterTwo()
+            },
 
             [1] = new Room //boss room
             {
@@ -214,7 +224,7 @@ namespace MyApp
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 1, //bingung
-                    ["kembali"] = 53 //bingung
+
                 },
                 Encounter = () => Encounter.FouthEncounter() //boss encounter
             },
@@ -255,7 +265,7 @@ namespace MyApp
                 {
                     Program.player.position = nextPosition; // Move first
                     Room nextRoom = map[nextPosition];      // Get the new room
-                    if (nextPosition != 61 && !Program.player.VisitedRooms.Contains(nextPosition))
+                    if (nextPosition != 611 && !Program.player.VisitedRooms.Contains(nextPosition))
                     {
                         nextRoom.Encounter?.Invoke(); // First-time special encounter
                         Program.player.VisitedRooms.Add(nextPosition);      // Mark as visited 
@@ -265,12 +275,11 @@ namespace MyApp
                             Program.player.VisitedRooms.Add(31);
                             Program.player.VisitedRooms.Add(32);
                         }
-                    }
-                    else if(nextPosition == 61)
+                    } else if (nextPosition == 611)
                     {
-                        nextRoom.Encounter?.Invoke();
+                         nextRoom.Encounter?.Invoke();
                     }
-                    else
+                    else 
                     {
                         Encounter.ClearedEncounter(); // For repeated visits
                     }

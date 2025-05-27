@@ -158,6 +158,67 @@ namespace MyApp
                 },
                 Encounter = () => Encounter.FouthEncounter()
             },
+            [52] = new Room
+            {
+                Id = 52,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 54,
+                    ["kiri"] = 61,
+                    ["kanan"] = 43
+                },
+                Encounter = () => Encounter.RandomEncounter()
+            },
+            [53] = new Room
+            {
+                Id = 53,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Kembali | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 43,
+                    ["kiri"] = 54,
+                    ["kanan"] = 52,
+                    ["kembali"] = 61
+                },
+                Encounter = () => Encounter.ClearedEncounter()
+            },
+            [54] = new Room
+            {
+                Id = 54,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 52,
+                    ["kiri"] = 43,
+                    ["kanan"] = 61
+                },
+                Encounter = () => Encounter.ChestEncounter()
+            },
+            [61] = new Room
+            {
+                Id = 61,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kembali | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 1,
+                    ["kembali"] = 53
+                },
+                Encounter = () => Encounter.FifthEncounter()
+            },
+
+            [1] = new Room //boss room
+            {
+                Id = 1,
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kembali | Shop",
+                Paths = new Dictionary<string, int>
+                {
+                    ["maju"] = 1, //bingung
+                    ["kembali"] = 53 //bingung
+                },
+                Encounter = () => Encounter.FouthEncounter() //boss encounter
+            },
+            
 
 
         };

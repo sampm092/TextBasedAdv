@@ -19,6 +19,8 @@ namespace MyApp
         public int key { get; set; } = 0;
         public int position { get; set; } = 0;
 
+        public HashSet<int> VisitedRooms { get; set; } = new HashSet<int>();
+
         public enum PLayerClass { Warrior, Knight, Alchemist }; //3 class for now
         public PLayerClass currentClass { get; set; } = PLayerClass.Warrior; //default class
 

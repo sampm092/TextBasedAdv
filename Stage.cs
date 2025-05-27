@@ -184,7 +184,7 @@ namespace MyApp
                 {
                     Console.Clear();
                     Program.player.health = Program.player.maxHealth;
-                    Function.Print("Kamu beristirahat untuk memulihkan kembali tenagamu.",15);
+                    Function.Print("Kamu beristirahat untuk memulihkan kembali tenagamu.", 15);
                     Console.ReadKey();
                     Console.Clear();
                     continue;
@@ -194,15 +194,21 @@ namespace MyApp
                 {
                     Program.player.position = nextPosition; // Move first
                     Room nextRoom = map[nextPosition];      // Get the new room
-                    if (!nextRoom.Visited)
+                    if (!Program.player.VisitedRooms.Contains(nextPosition))
                     {
                         nextRoom.Encounter?.Invoke(); // First-time special encounter
-                        nextRoom.Visited = true;      // Mark as visited BUT GOT RESET every time you quit
+                        Program.player.VisitedRooms.Add(nextPosition);      // Mark as visited 
+
+                        if (Program.player.VisitedRooms.Contains(31))
+                        {
+                            Program.player.VisitedRooms.Add(32);
+                        }
                     }
                     else
                     {
                         Encounter.ClearedEncounter(); // For repeated visits
                     }
+                    currentRoom = nextRoom;
                 }
                 else
                 {

@@ -268,6 +268,10 @@ namespace MyApp
                         pDamageValue = 0;
                     }
                     int pAttack = rand.Next(0, Program.player.weaponValue) + rand.Next(1, 1 + Program.player.attackValue) - d;
+                    if (pAttack < 0)
+                    {
+                        pAttack = 0;
+                    }
                     Function.Print("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah", 5);
                     Program.player.health -= pDamageValue;
                     h -= pAttack;

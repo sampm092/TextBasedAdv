@@ -179,7 +179,7 @@ namespace MyApp
                     ["maju"] = 43,
                     ["kiri"] = 54,
                     ["kanan"] = 52,
-                    ["kembali"] = 61
+                    ["kembali"] = 61 //could be simplified, without the dialogue
                 },
                 Encounter = () => Encounter.ClearedEncounter()
             },
@@ -218,7 +218,7 @@ namespace MyApp
                 },
                 Encounter = () => Encounter.FouthEncounter() //boss encounter
             },
-            
+
 
 
         };
@@ -255,15 +255,20 @@ namespace MyApp
                 {
                     Program.player.position = nextPosition; // Move first
                     Room nextRoom = map[nextPosition];      // Get the new room
-                    if (!Program.player.VisitedRooms.Contains(nextPosition))
+                    if (nextPosition != 61 && !Program.player.VisitedRooms.Contains(nextPosition))
                     {
                         nextRoom.Encounter?.Invoke(); // First-time special encounter
                         Program.player.VisitedRooms.Add(nextPosition);      // Mark as visited 
 
-                        if (Program.player.VisitedRooms.Contains(31))
+                        if (Program.player.VisitedRooms.Overlaps(new[] { 31, 32 }))
                         {
+                            Program.player.VisitedRooms.Add(31);
                             Program.player.VisitedRooms.Add(32);
                         }
+                    }
+                    else if(nextPosition == 61)
+                    {
+                        nextRoom.Encounter?.Invoke();
                     }
                     else
                     {

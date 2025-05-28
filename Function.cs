@@ -3,7 +3,7 @@ namespace MyApp
 {
     public class Function
     {
-        public static Random rand = new Random();   
+        public static Random rand = new Random();
         public static void Print(string text, int speed = 40)
         {
             string path = Path.Combine(AppContext.BaseDirectory, "sounds", "text.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
@@ -40,7 +40,7 @@ namespace MyApp
 
         public static int GetHealth()  //randomize enemy health
         {
-            
+
             int upper = 2 * Program.player.mods + 7;
             int lower = Program.player.mods + 3;
             return rand.Next(lower, upper);
@@ -73,6 +73,23 @@ namespace MyApp
             int lower = 10 * Program.player.mods + 15;
             return rand.Next(lower, upper);
         }
+
+        // public static void Run()
+        // {
+        //     var visited = Program.player.VisitedRoom;
+        //     if (visited.Count >= 2)
+        //     {
+        //         int previousRoom = visited[visited.Count - 2]; // Get the room before the current
+        //         Program.player.position = previousRoom;
+        //         visited.RemoveAt(visited.Count - 1); // Remove current room (escaped room)
+        //         Function.Print("Kamu berhasil kabur ke ruangan sebelumnya...", 15);
+        //     }
+        //     else
+        //     {
+        //         Function.Print("Tidak ada ruangan sebelumnya untuk kembali.", 15);
+        //     }
+
+        // }
 
     }
 }

@@ -62,18 +62,31 @@ namespace MyApp
 
         public static int GetMoney() //randomize money dropped
         {
-            int upper = 15 * Program.player.mods + 50;
-            int lower = 10 * Program.player.mods + 10;
-            return rand.Next(lower, upper);
+            if (Program.player.position == 61 || Program.player.position == 611)
+            {
+                return 300;
+            }
+            else
+            {
+                int upper = 15 * Program.player.mods + 50;
+                int lower = 10 * Program.player.mods + 10;
+                return rand.Next(lower, upper);
+            }
         }
 
         public static int GetXP() //randomize money dropped
         {
-            int upper = 25 * Program.player.mods + 45;
-            int lower = 10 * Program.player.mods + 15;
-            return rand.Next(lower, upper);
+            if (Program.player.position == 61 || Program.player.position == 611)
+            {
+                return 500;
+            }
+            else
+            {
+                int upper = 25 * Program.player.mods + 45;
+                int lower = 10 * Program.player.mods + 15;
+                return rand.Next(lower, upper);
+            }
         }
-
 
     }
 }

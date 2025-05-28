@@ -75,6 +75,10 @@ namespace MyApp
                 {
                     TryBuy("potion", potionPrice, p);
                 }
+                else if (input == "m" || input == "maxH")
+                {
+                    TryBuy("maxH", maxHPrice, p);
+                }
                 else if (input == "d" || input == "diff" || input == "difficulty")
                 {
                     TryBuy("diff", diffPrice, p);
@@ -94,6 +98,7 @@ namespace MyApp
                 else if (item == "armor") p.defenseValue++;
                 else if (item == "potion") p.potion++;
                 else if (item == "diff") p.mods++;
+                else if (item == "maxH") p.maxHealth++;
 
                 p.money -= cost;
 

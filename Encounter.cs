@@ -60,7 +60,7 @@ namespace MyApp
             Function.Print("Dan dia bersiap menyerangmu!", 15);
             Console.ReadKey();
             Console.Clear();
-            Combat(false, "Ember Golem", 1, 7, 2);
+            Combat(false, "Ember Golem", 3, 7, 2);
             Function.Print("Dari dalam tubuhnya keluar sebuah sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Program.player.key += 1;
@@ -80,7 +80,7 @@ namespace MyApp
             Function.Print("Kamu juga mempersiapkan senjata dan maju untuk menyerang!", 15);
             Console.ReadKey();
             Console.Clear();
-            Combat(false, "Cyclops", 2, 10, 0);
+            Combat(false, "Cyclops", 4, 10, 0);
             Function.Print("Kamu mendapatkan 1 buah kunci lagi!.", 15);
             Program.player.key += 1;
             Console.ReadKey();
@@ -125,10 +125,11 @@ namespace MyApp
                     Function.Print("'Bersiaplah!'", 15);
                     Console.ReadKey();
                     Console.Clear();
-                    Combat(false, "Fallen Knight", 3, 15, 2);
+                    Combat(false, "Fallen Knight", 5, 15, 2);
                     Function.Print("'Kau sudah layak untuk lanjut. Ambillah kunci-kunci ini.", 15);
                     Program.player.key += 6;
                     Function.Print(" Kau membutuhkan sepuluh untuk membuka pintu ruangan terakhir.'", 15);
+                    Function.Print("Kamu mendapatkan 6 buah kunci!.", 15);
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -152,7 +153,7 @@ namespace MyApp
             Function.Print("'Kau kembali.", 15);
             while (true)
             {
-                Function.Print("'Tidak ada jalan kembali setelah ini.", 15);
+                Function.Print(" Tidak ada jalan kembali setelah ini.", 15);
                 Function.Print(" Apa kau memiliki nyali untuk menantangku?' [Y/T]", 15);
                 string input3 = Console.ReadLine()!.ToLower();
                 if (input3 == "y")
@@ -164,6 +165,7 @@ namespace MyApp
                     Function.Print("'Kau sudah layak untuk lanjut. Ambillah kunci-kunci ini.", 15);
                     Program.player.key += 6;
                     Function.Print(" Kau membutuhkan sepuluh untuk membuka pintu ruangan terakhir.'", 15);
+                    Function.Print("Kamu mendapatkan 6 buah kunci!.", 15);
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -313,7 +315,7 @@ namespace MyApp
                         pDamageValue = 0;
                     }
                     int attackrangeup = Program.player.weaponValue + Program.player.attackValue;
-                    int attackrangbot = attackrangeup - 2; //could be wrong
+                    int attackrangbot = attackrangeup - 3; //could be wrong
                     if (attackrangbot <= 0) attackrangbot = 0;
                     int pAttack = rand.Next(attackrangbot, attackrangeup) - d;
                     if (pAttack < 0)

@@ -1,3 +1,5 @@
+using System.Diagnostics.Tracing;
+
 namespace MyApp
 {
     [Serializable]
@@ -10,7 +12,7 @@ namespace MyApp
         public int maxHealth { get; set; } = 10;
         public int health { get; set; } = 10;
         public int attackValue { get; set; } = 1;
-        public int defenseValue { get; set; } = 0;
+        public int defenseValue { get; set; } = 0 ;
         public int weaponValue { get; set; } = 1;
         public int potion { get; set; } = 3;
         public int mods { get; set; } = 0; //for modifying power level
@@ -26,7 +28,7 @@ namespace MyApp
 
         public int LevelUpValue()
         {
-            return 50 * level + 100; //exp needed for level up
+            return 75 * level; //exp needed for level up
         }
 
         public bool CanLevelUp()
@@ -42,7 +44,17 @@ namespace MyApp
                 exp -= LevelUpValue(); //resetting the exp value after Level Up
                 level++;
             }
+            maxHealth++;
             Function.Print("Kamu naik level menjadi level " + level + " !");
+            Function.Print("Maks darah naik menjadi " + maxHealth + " !");
+            if (level % 2 == 1)
+            {
+                attackValue++;
+                defenseValue++;
+                 int attackrange = Program.player.weaponValue + Program.player.attackValue;
+                Function.Print("Kekuatan serangan menjadi " + attackrange + " !");
+                Function.Print("Ketahanan menjadi " + defenseValue + " !");
+            }
         }
     }
 }

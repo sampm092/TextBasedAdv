@@ -19,7 +19,7 @@ namespace MyApp
         public int key { get; set; } = 0;
         public int position { get; set; } = 0;
         public HashSet<int> VisitedRooms { get; set; } = new HashSet<int>(); // for repetitive feature
-        // public List<int> VisitedRoom { get; set; } = new List<int>(); // for run feature
+
 
         public enum PLayerClass { Warrior, Knight, Alchemist }; //3 class for now
         public PLayerClass currentClass { get; set; } = PLayerClass.Warrior; //default class

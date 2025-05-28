@@ -7,7 +7,7 @@ namespace MyApp
             [0] = new Room
             {
                 Id = 0,
-                Description = "Pilih jalan yang ingin kamu lewati: \nKembali | Rest | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKembali | Rest | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kembali"] = 31
@@ -17,7 +17,7 @@ namespace MyApp
             [11] = new Room
             {
                 Id = 11,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 31,
@@ -28,7 +28,7 @@ namespace MyApp
             [12] = new Room
             {
                 Id = 12,
-                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kiri"] = 0,
@@ -39,7 +39,7 @@ namespace MyApp
             [13] = new Room
             {
                 Id = 13,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kiri"] = 21,
@@ -50,7 +50,7 @@ namespace MyApp
             [21] = new Room
             {
                 Id = 21,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 23,
@@ -61,7 +61,7 @@ namespace MyApp
             [22] = new Room
             {
                 Id = 22,
-                Description = "Pilih jalan yang ingin kamu lewati: \nKanan | Kiri | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKanan | Kiri | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kanan"] = 12,
@@ -72,7 +72,7 @@ namespace MyApp
             [23] = new Room
             {
                 Id = 23,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 12,
@@ -83,7 +83,7 @@ namespace MyApp
             [31] = new Room
             {
                 Id = 31,
-                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kiri"] = 41,
@@ -94,7 +94,7 @@ namespace MyApp
             [32] = new Room
             {
                 Id = 32,
-                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Maju | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Maju | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kiri"] = 13,
@@ -105,7 +105,7 @@ namespace MyApp
             [33] = new Room
             {
                 Id = 33,
-                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kiri"] = 22,
@@ -116,7 +116,7 @@ namespace MyApp
             [41] = new Room
             {
                 Id = 41,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 42,
@@ -127,7 +127,7 @@ namespace MyApp
             [42] = new Room
             {
                 Id = 42,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 33,
@@ -138,7 +138,7 @@ namespace MyApp
             [43] = new Room
             {
                 Id = 43,
-                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nKiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["kiri"] = 33,
@@ -149,7 +149,7 @@ namespace MyApp
             [51] = new Room
             {
                 Id = 51,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 61,
@@ -161,7 +161,7 @@ namespace MyApp
             [52] = new Room
             {
                 Id = 52,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 54,
@@ -173,7 +173,7 @@ namespace MyApp
             [53] = new Room
             {
                 Id = 53,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Kembali | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Kembali | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 43,
@@ -186,7 +186,7 @@ namespace MyApp
             [54] = new Room
             {
                 Id = 54,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 52,
@@ -198,7 +198,7 @@ namespace MyApp
             [61] = new Room
             {
                 Id = 61,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kembali | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kembali | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 1,
@@ -209,7 +209,7 @@ namespace MyApp
             [611] = new Room
             {
                 Id = 611,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 1,
@@ -220,7 +220,7 @@ namespace MyApp
             [1] = new Room //boss room
             {
                 Id = 1,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kembali | Shop",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kembali | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 1, //bingung
@@ -250,6 +250,11 @@ namespace MyApp
                     continue;
                 }
 
+                if (input == "save")
+                {
+                    Program.Quit();
+                }
+
                 if (input == "rest")
                 {
                     Console.Clear();
@@ -264,15 +269,10 @@ namespace MyApp
                 {
                     Program.player.position = nextPosition; // Move first
                     Room nextRoom = map[nextPosition];      // Get the new room
-                    // Program.player.VisitedRoom.Add(Program.player.position);
+
                     if (nextPosition != 611 && !Program.player.VisitedRooms.Contains(nextPosition))
                     {
                         nextRoom.Encounter?.Invoke(); // First-time special encounter
-                        // Program.player.VisitedRooms.Add(nextPosition);      // Mark as visited 
-                        // if (!Program.player.VisitedRoom.Contains(nextPosition))
-                        // {
-                        //     Program.player.VisitedRoom.Add(nextPosition);
-                        // }
                         if (Program.player.VisitedRooms.Overlaps(new[] { 31, 32 }))
                         {
                             Program.player.VisitedRooms.Add(31);

@@ -119,8 +119,6 @@ namespace MyApp
             string[] paths = Directory.GetFiles("saves");
             List<Player> players = new List<Player>();
             int idCount = 0;
-
-            // BinaryFormatter binFormatter = new BinaryFormatter();
             foreach (string p in paths)
             {
                 try

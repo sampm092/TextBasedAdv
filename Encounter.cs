@@ -389,7 +389,7 @@ namespace MyApp
                 else if (tempCommand.ToLower() == "r" || tempCommand.ToLower() == "run")
                 //Run Command, make this run to previous map, not to shop
                 {
-                    if (rand.Next(0, 1) == 1)
+                    if (rand.Next(0, 2) == 1)
                     {
 
                         Function.Print("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ".", 5);
@@ -404,11 +404,9 @@ namespace MyApp
 
                         Function.Print("Kamu merasa pertarungan ini tidak dapat dimenangkan dan mencoba untuk mencari kesempatan untuk kabur dari " + n + ".", 5);
                         Function.Print("Kemampuanmu dalam menghindari serangannya sangat baik dan kamu berhasil kabur!", 5);
-                        // Function.Run();
 
                         //ke town
                         Shop.LoadShop(Program.player);
-                        // return;
                     }
                 }
                 Console.ReadKey();

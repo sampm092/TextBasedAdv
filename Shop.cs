@@ -62,7 +62,6 @@ namespace MyApp
                 Console.WriteLine(" [D-ifficulty] : " + diffPrice);
                 Console.WriteLine("Koin Kamu : " + p.money);
                 Console.WriteLine("K-embali?");
-                Console.WriteLine("S-ave dan keluar?");
                 String input = Console.ReadLine() ?? string.Empty;
                 if (input == "w" || input == "weapon")
                 {
@@ -79,10 +78,6 @@ namespace MyApp
                 else if (input == "d" || input == "diff" || input == "difficulty")
                 {
                     TryBuy("diff", diffPrice, p);
-                }
-                else if (input == "s" || input == "save")
-                {
-                    Program.Quit();
                 }
                 else if (input == "k" || input == "keluar" || input == "exit")
                 {

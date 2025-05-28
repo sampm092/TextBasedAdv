@@ -74,22 +74,6 @@ namespace MyApp
             return rand.Next(lower, upper);
         }
 
-        // public static void Run()
-        // {
-        //     var visited = Program.player.VisitedRoom;
-        //     if (visited.Count >= 2)
-        //     {
-        //         int previousRoom = visited[visited.Count - 2]; // Get the room before the current
-        //         Program.player.position = previousRoom;
-        //         visited.RemoveAt(visited.Count - 1); // Remove current room (escaped room)
-        //         Function.Print("Kamu berhasil kabur ke ruangan sebelumnya...", 15);
-        //     }
-        //     else
-        //     {
-        //         Function.Print("Tidak ada ruangan sebelumnya untuk kembali.", 15);
-        //     }
-
-        // }
 
     }
 }

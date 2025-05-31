@@ -220,12 +220,18 @@ namespace MyApp
             [1] = new Room //boss room
             {
                 Id = 1,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kembali | Shop | Save",
+                Description = "Pilih jalan yang ingin kamu lewati: \nMaju ",
                 Paths = new Dictionary<string, int>
                 {
-                    ["maju"] = 1, //bingung
+                    ["maju"] = 99,
 
                 },
+                Encounter = () => Encounter.FouthEncounter() //boss encounter
+            },
+            [99] = new Room //boss room
+            {
+                Id = 99,
+                Description = "Selamat, kamu menyelesaikan permainan ini!!!",
                 Encounter = () => Encounter.FouthEncounter() //boss encounter
             },
 

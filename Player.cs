@@ -11,10 +11,10 @@ namespace MyApp
         public int money { get; set; } = 70;
         public int maxHealth { get; set; } = 10;
         public int health { get; set; } = 10;
-        public int attackValue { get; set; } = 1;
+        public int attackValue { get; set; } = 0;
         public int defenseValue { get; set; } = 0 ;
         public int weaponValue { get; set; } = 1;
-        public int potion { get; set; } = 3;
+        public int potion { get; set; } = 2;
         public int mods { get; set; } = 0; //for modifying power level
         public int level { get; set; } = 1;
         public int exp { get; set; } = 50;

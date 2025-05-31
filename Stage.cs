@@ -226,13 +226,13 @@ namespace MyApp
                     ["maju"] = 99,
 
                 },
-                Encounter = () => Encounter.FouthEncounter() //boss encounter
+                Encounter = () => Encounter.BossEncounter() //boss encounter
             },
             [99] = new Room //boss room
             {
                 Id = 99,
                 Description = "Selamat, kamu menyelesaikan permainan ini!!!",
-                Encounter = () => Encounter.FouthEncounter() //boss encounter
+                Encounter = () => Encounter.End() //boss encounter
             },
 
 

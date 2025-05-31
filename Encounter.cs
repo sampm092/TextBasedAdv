@@ -132,7 +132,7 @@ namespace MyApp
                     Function.Print("'Kau sudah layak untuk lanjut. Ambillah kunci-kunci ini.", 15);
                     Program.player.key += KeyNeed;
                     Function.Print(" Kau membutuhkan sepuluh untuk membuka pintu ruangan terakhir.'", 15);
-                    Function.Print("Kamu mendapatkan "+ KeyNeed  +" buah kunci!.", 15);
+                    Function.Print("Kamu mendapatkan " + KeyNeed + " buah kunci!.", 15);
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -169,7 +169,7 @@ namespace MyApp
                     Function.Print("'Kau sudah layak untuk lanjut. Ambillah kunci-kunci ini.", 15);
                     Program.player.key += KeyNeed;
                     Function.Print(" Kau membutuhkan sepuluh untuk membuka pintu ruangan terakhir.'", 15);
-                    Function.Print("Kamu mendapatkan" +  KeyNeed +" buah kunci!.", 15);
+                    Function.Print("Kamu mendapatkan" + KeyNeed + " buah kunci!.", 15);
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -188,23 +188,49 @@ namespace MyApp
             }
         }
 
+
+
         public static void BossEncounter() //ruangan boss
         {
             Function.Print("Sebelum memasuki ruangan terakhir, orang tadi mempersilahkan dirimu untuk", 15);
             Function.Print(" beristirahat di tempatnya sehingga staminamu pulih seperti semula.", 15);
             Program.player.health = Program.player.maxHealth;
+            Console.ReadKey();
+            Console.Clear();
             Function.Print("Kamu berjalan ke satu-satunya lorong untuk keluar dari ruangan ini", 15);
             Function.Print("Setelah beberapa langkah, sebuah pintu besar dengan sepuluh lubang kunci terlihat di depanmu", 15);
+            Console.ReadKey();
+            Console.Clear();
             Function.Print("Kamu menggunakan kesepuluh kunci yang didapatkan dari ruangan pertama", 15);
             Program.player.key = 0;
+            Console.ReadKey();
+            Console.Clear();
             Function.Print("Ceklek! Setelah kunci kesepuluh diputar, pintu besar itu perlahan-lahan terbuka.", 15);
             Function.Print("Belum terlihat apa-apa ketika kamu melangkahkan kakimu memasuki ruangan luas itu.", 15);
+            Console.ReadKey();
+            Console.Clear();
             Function.Print("Tetapi beberapa langkah kemudian, memang benar, tampaklah raksasa bertubuh tinggi besar berdiri tegak di tengah ruangan", 15);
             Function.Print("Matanya berkilat-kilat dipenuhi dengan rasa ingin menghabisimu", 15);
+            Console.ReadKey();
+            Console.Clear();
             Function.Print("Dia berjalan ke arahmu mengangkat tinjunya yang besar dan kuat, siap untuk menghantam!", 15);
             Function.Print("Satu-satunya pilihanmu adalah bertarung!", 15);
             Combat(false, "Giant", 5, 20, 2);
+            Function.Print("Pertarungan berakhir.", 15);
+            Function.Print("Kamu berhasil mengalahkan raksasa itu", 15);
+            Console.ReadKey();
+            Console.Clear();
+            Function.Print("Beberapa saat setelah makhluk itu tumbang, terdengar suara pintu yang terbuka dari ujung ruangan", 15);
+            Function.Print("Kamu mendekat ke arah datangnya suara tersebut dan tampaklah pintu terbuka di sana.", 15);
+        }
 
+        public static void End()
+        {
+            Function.Print("Cahaya matahari yang hangat memasuki ruangan melalui pintu itu", 15);
+            Function.Print("Rasa penatmu langsung sirna melihat jalan keluar dari labirin yang telah kamu lewati", 15);
+            Function.Print("Dengan siap, kamu mulai melangkahkan kaki ke arah cahaya...", 15);
+            Function.Print("\n\n TAMAT", 30);
+            Environment.Exit(0);
         }
 
         public static void ChestEncounter() //ruangan chest

@@ -66,6 +66,10 @@ namespace MyApp
             {
                 return 300;
             }
+            else if (Program.player.position == 1)
+            {
+                return 500;
+            }
             else
             {
                 int upper = 15 * Program.player.mods + 50;
@@ -79,6 +83,10 @@ namespace MyApp
             if (Program.player.position == 61 || Program.player.position == 611)
             {
                 return 500;
+            }
+            else if (Program.player.position == 1)
+            {
+                return 750;
             }
             else
             {

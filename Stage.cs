@@ -2,8 +2,10 @@ namespace MyApp
 {
     public class Stage
     {
+
         static Dictionary<int, Room> map = new Dictionary<int, Room>
         {
+
             [0] = new Room
             {
                 Id = 0,
@@ -161,7 +163,7 @@ namespace MyApp
             [52] = new Room
             {
                 Id = 52,
-                Description = "Pilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop | Save",
+                Description = "Ruangan ini kosong, jadi kamu kembali.\n\nPilih jalan yang ingin kamu lewati: \nMaju | Kiri | Kanan | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
                     ["maju"] = 54,
@@ -244,6 +246,13 @@ namespace MyApp
 
             while (true)
             {
+                Console.Clear();
+                Console.WriteLine("88  dP    db    88''Yb 88   88 88''Yb     d8b ");
+                Console.WriteLine("88odP    dPYb   88__dP 88   88 88__dP     Y8P");
+                Console.WriteLine("88`Yb   dP__Yb  88``Yb Y8   8P 88`Yb      ``' ");
+                Console.WriteLine("88  Yb dP````Yb 88oodP `YbodP' 88  Yb     (8) ");
+                Console.WriteLine("_____________________________________________\n");
+                Console.WriteLine("                                  " + Program.player.name +"\n");
                 var currentRoom = map[Program.player.position];
                 Console.WriteLine(currentRoom.Description!);
 

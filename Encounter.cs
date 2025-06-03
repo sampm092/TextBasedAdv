@@ -7,8 +7,8 @@ namespace MyApp
         public static void FirstEncounter() //untuk ruangan 1
         {
             Function.Print("Kamu membuka pintu yang ternyata tidak dikunci.", 15);
-            Function.Print("Tiba-tiba, suatu entitas maju ke arahmu tanpa basa-basi.", 15);
-            Function.Print("Kamu tidak memiliki pilihan selain membela diri.", 15);
+            Function.Print("Tiba-tiba, sebuah entitas mengancam maju ke arahmu tanpa peringatan.", 15);
+            Function.Print("Tidak ada pilihan lain selain bertarung untuk melindungi diri.", 15);
             Console.ReadKey();
             Console.Clear();
             Combat(false, "Troll", 1, 4, 0);
@@ -55,12 +55,12 @@ namespace MyApp
             Function.Print("Kamu berjalan ke tengah ruangan dan tiba-tiba terdengar suara aneh!", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Crack! Dari bawah kakimu suara itu terdengar, spontan kamu melompat mundur", 15);
-            Function.Print("Dari permukaan tanah muncul makhluk cukup besar berbentuk manusia tanah.", 15);
-            Function.Print("Dan dia bersiap menyerangmu!", 15);
+            Function.Print("Crack! Terdengar dari bawah kakimu suara. Spontan kamu melompat mundur.", 15);
+            Function.Print("Dari permukaan tanah, muncul makhluk cukup besar berbentuk manusia tanah.", 15);
+            Function.Print("Dia bersiap menyerangmu!", 15);
             Console.ReadKey();
             Console.Clear();
-            Combat(false, "Ember Golem", 3, 7, 2);
+            Combat(false, "Ember Golem", 3, 9, 2);
             Function.Print("Dari dalam tubuhnya keluar sebuah sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Program.player.key += 1;
@@ -72,7 +72,7 @@ namespace MyApp
         public static void FouthEncounter() //untuk ruangan 5
         {
             Function.Print("Kamu melangkah ke depan dan tampaklah ruangan baru lagi.", 15);
-            Function.Print("Ruangan ini terang akibat banyaknya lilin.", 15);
+            Function.Print("Lilin-lilin yang bertebaran di ruangan ini memberikan pencahayaan yang lebih dari cukup.", 15);
             Console.ReadKey();
             Console.Clear();
             Function.Print("Sama seperti ruangan-ruangan sebelumnya, di tengah ruangan bersiaga makhluk lainnya.", 15);
@@ -80,7 +80,7 @@ namespace MyApp
             Function.Print("Kamu juga mempersiapkan senjata dan maju untuk menyerang!", 15);
             Console.ReadKey();
             Console.Clear();
-            Combat(false, "Cyclops", 4, 10, 0);
+            Combat(false, "Cyclops", 5, 12, 2);
             Function.Print("Kamu mendapatkan 1 buah kunci lagi!.", 15);
             Program.player.key += 1;
             Console.ReadKey();
@@ -270,8 +270,8 @@ namespace MyApp
             Function.Print("Tampaklah ratusan keping emas di dalamnya.", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Kamu segera memasukkan semuanya ke penyimpananmu.");
-            Function.Print("Kamu mendapatkan 300 keping koin!");
+            Function.Print("Kamu segera memasukkan semuanya ke penyimpananmu.",15);
+            Function.Print("Kamu mendapatkan 300 keping koin!",15);
             Program.player.money += 300;
             Console.ReadKey();
             Console.Clear();
@@ -364,7 +364,7 @@ namespace MyApp
                         pDamageValue = 0;
                     }
                     int attackrangeup = Program.player.weaponValue + Program.player.attackValue;
-                    int attackrangbot = 1 + (attackrangeup - 3); //could be wrong
+                    int attackrangbot = 1 + (attackrangeup - 4); //could be wrong
                     if (attackrangbot <= 0) attackrangbot = 0;
                     int pAttack = rand.Next(attackrangbot, attackrangeup) - d;
                     if (pAttack < 0)
@@ -398,7 +398,11 @@ namespace MyApp
                     if (Program.player.potion == 0)
                     {
                         Function.Print("Kamu kehabisan potion untuk digunakan dan " + n + "berkesempatan untuk menyerangmu yang sedang kebingungan", 5);
-                        int pDamageValue = p;
+                        int pDamageValue = p - (Program.player.defenseValue/2);
+                        if (pDamageValue <= 0)
+                        {
+                            pDamageValue = 0;
+                        }
 
                         Program.player.health -= pDamageValue;
                         Function.Print("Kamu kehilangan " + pDamageValue + " poin darah", 5);

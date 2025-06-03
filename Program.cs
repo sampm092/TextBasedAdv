@@ -83,8 +83,8 @@ namespace MyApp
             Function.Print("dan sebuah pintu tampak diantaranya.", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini. Tetapi kamu tahu satu hal", 15);
-            Function.Print("Tempat ini berbahaya dan kamu harus kabur dari tempat ini!", 15);
+            Function.Print("Kamu tidak mengerti apa yang terjadi hingga bisa berada di sini.", 15);
+            Function.Print("Tetapi kamu tahu satu hal. Kamu harus keluar dari tempat ini!", 15);
             Console.ReadKey();
             Console.Clear();
             return p;
@@ -152,6 +152,7 @@ namespace MyApp
 
                 Console.WriteLine("Pilih: (ketik 'create' untuk membuat karakter baru)");
                 string[] data = (Console.ReadLine() ?? string.Empty).Split(":");
+                Console.Clear();
 
                 try
                 {

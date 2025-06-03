@@ -36,7 +36,7 @@ namespace MyApp
             Console.Clear();
             Function.Print("Dari tengah ruangan terlihat sosok makhluk yang sedang duduk dan bersiaga.", 15);
             Function.Print("Entah karena instingnya, tiba-tiba dia melihat ke arahmu dan bersiap untuk menyerang!", 15);
-            Combat(false, "Ogre", 2, 5, 1);
+            Combat(false, "Ogre", 2, 5, 0);
             Function.Print("Kamu melihat ke bawah dan menemukan sebuah kunci lagi.", 15);
             Function.Print("Kamu mendapatkan 1 buah kunci!.", 15);
             Program.player.key += 1;
@@ -193,15 +193,15 @@ namespace MyApp
         public static void BossEncounter() //ruangan boss
         {
             Function.Print("Sebelum memasuki ruangan terakhir, orang tadi mempersilahkan dirimu untuk", 15);
-            Function.Print(" beristirahat di tempatnya sehingga staminamu pulih seperti semula.", 15);
+            Function.Print("beristirahat di tempatnya sehingga staminamu pulih seperti semula.", 15);
             Program.player.health = Program.player.maxHealth;
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Kamu berjalan ke satu-satunya lorong untuk keluar dari ruangan ini", 15);
-            Function.Print("Setelah beberapa langkah, sebuah pintu besar dengan sepuluh lubang kunci terlihat di depanmu", 15);
+            Function.Print("Kamu berjalan ke satu-satunya lorong untuk keluar dari ruangan ini.", 15);
+            Function.Print("Setelah beberapa langkah, sebuah pintu besar dengan sepuluh lubang kunci terlihat di depanmu.", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Kamu menggunakan kesepuluh kunci yang didapatkan dari ruangan pertama", 15);
+            Function.Print("Kamu menggunakan kesepuluh kunci yang didapatkan dari ruangan pertama.", 15);
             Program.player.key = 0;
             Console.ReadKey();
             Console.Clear();
@@ -209,8 +209,8 @@ namespace MyApp
             Function.Print("Belum terlihat apa-apa ketika kamu melangkahkan kakimu memasuki ruangan luas itu.", 15);
             Console.ReadKey();
             Console.Clear();
-            Function.Print("Tetapi beberapa langkah kemudian, memang benar, tampaklah raksasa bertubuh tinggi besar berdiri tegak di tengah ruangan", 15);
-            Function.Print("Matanya berkilat-kilat dipenuhi dengan rasa ingin menghabisimu", 15);
+            Function.Print("Tetapi beberapa langkah kemudian, memang benar, tampaklah raksasa bertubuh tinggi besar berdiri tegak di tengah ruangan.", 15);
+            Function.Print("Matanya berkilat-kilat dipenuhi dengan rasa ingin menghabisimu.", 15);
             Console.ReadKey();
             Console.Clear();
             Function.Print("Dia berjalan ke arahmu mengangkat tinjunya yang besar dan kuat, siap untuk menghantam!", 15);
@@ -226,9 +226,14 @@ namespace MyApp
 
         public static void End()
         {
-            Function.Print("Cahaya matahari yang hangat memasuki ruangan melalui pintu itu", 15);
-            Function.Print("Rasa penatmu langsung sirna melihat jalan keluar dari labirin yang telah kamu lewati", 15);
-            Function.Print("Dengan siap, kamu mulai melangkahkan kaki ke arah cahaya...", 15);
+            Console.Clear();
+            Function.Print("Cahaya matahari yang hangat memasuki ruangan melalui pintu itu.", 15);
+            Console.ReadKey();
+            Function.Print("Rasa penatmu langsung sirna melihat jalan keluar dari labirin yang telah kamu lewati.", 15);
+            Console.ReadKey();
+            Function.Print("Kamu melangkah ke arah cahaya.", 30);
+            Console.ReadKey();
+            Function.Print("Dan kembali ke dunia.", 30);
             Function.Print("\n\n TAMAT", 30);
             Environment.Exit(0);
         }
@@ -359,7 +364,7 @@ namespace MyApp
                         pDamageValue = 0;
                     }
                     int attackrangeup = Program.player.weaponValue + Program.player.attackValue;
-                    int attackrangbot = attackrangeup - 3; //could be wrong
+                    int attackrangbot = 1 + (attackrangeup - 3); //could be wrong
                     if (attackrangbot <= 0) attackrangbot = 0;
                     int pAttack = rand.Next(attackrangbot, attackrangeup) - d;
                     if (pAttack < 0)

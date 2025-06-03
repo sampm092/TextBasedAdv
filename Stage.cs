@@ -10,7 +10,7 @@ namespace MyApp
                 Description = "Pilih jalan yang ingin kamu lewati: \nKembali | Rest | Shop | Save",
                 Paths = new Dictionary<string, int>
                 {
-                    ["kembali"] = 31
+                    ["kembali"] = 11
                 },
                 Encounter = () => Encounter.RoomZero()
             },
@@ -279,6 +279,7 @@ namespace MyApp
                     if (nextPosition != 611 && !Program.player.VisitedRooms.Contains(nextPosition))
                     {
                         nextRoom.Encounter?.Invoke(); // First-time special encounter
+                        Program.player.VisitedRooms.Add(nextPosition);
                         if (Program.player.VisitedRooms.Overlaps(new[] { 31, 32 }))
                         {
                             Program.player.VisitedRooms.Add(31);

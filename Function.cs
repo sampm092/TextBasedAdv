@@ -72,8 +72,8 @@ namespace MyApp
             }
             else
             {
-                int upper = 15 * Program.player.mods + 50;
-                int lower = 10 * Program.player.mods + 10;
+                int upper = 15 * Program.player.mods + 10 * Program.player.level + 60;
+                int lower = 10 * Program.player.mods + 5 * Program.player.level + 20;
                 return rand.Next(lower, upper);
             }
         }

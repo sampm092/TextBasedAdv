@@ -24,7 +24,6 @@ namespace MyApp
         {
             Player p = new Player();
             Console.Clear();
-            Function.Print("Kabur!`", 50);
 
             while (true)
             {
@@ -115,7 +114,11 @@ namespace MyApp
         {
             newP = false;
             Console.Clear();
-            Console.WriteLine("Karakter: ");
+            Console.WriteLine("88  dP    db    88''Yb 88   88 88''Yb     d8b ");
+            Console.WriteLine("88odP    dPYb   88__dP 88   88 88__dP     Y8P");
+            Console.WriteLine("88`Yb   dP__Yb  88``Yb Y8   8P 88`Yb      ``' ");
+            Console.WriteLine("88  Yb dP````Yb 88oodP `YbodP' 88  Yb     (8) ");
+            Console.WriteLine("\nKarakter: ");
             string[] paths = Directory.GetFiles("saves");
             List<Player> players = new List<Player>();
             int idCount = 0;

@@ -32,19 +32,19 @@ namespace MyApp
                 diffPrice = 300 + 100 * p.mods;
 
                 Console.Clear();
-                Console.WriteLine("==========================");
-                Console.WriteLine("==== SELAMAT DATANG ! ====");
-                Console.WriteLine("==========================");
+                Console.WriteLine("============================");
+                Console.WriteLine("===== SELAMAT DATANG ! =====");
+                Console.WriteLine("============================");
                 Console.WriteLine(" Status " + p.name);
                 Console.WriteLine(" Class " + p.currentClass );
-                Console.WriteLine("==========================");
+                Console.WriteLine("============================");
                 Console.WriteLine(" Level           : " + p.level);
                 Console.WriteLine(" Exp : " );
                 Console.Write("[");
                 Function.ProgressBar("=", ProgressBarInt, 25);
                 Console.WriteLine("]");
                 Console.WriteLine("                  " + + p.exp + "/" + p.LevelUpValue());
-                Console.WriteLine("-------------------------");
+                Console.WriteLine("---------------------------");
                 Console.WriteLine(" Max HP          : " + p.maxHealth);
                 Console.WriteLine(" HP              : " + p.health);
                 Console.WriteLine(" Kekuatan serang : " + (p.attackValue + p.weaponValue));
@@ -53,7 +53,7 @@ namespace MyApp
                 Console.WriteLine(" Kunci           : " + p.key);
                 Console.WriteLine(" Posisi          : " + p.position);
                 Console.WriteLine(" Kesulitan       : " + p.mods);
-                Console.WriteLine("==========================");
+                Console.WriteLine("============================");
                 Console.WriteLine(" Tingkatkan apa?        ");
                 Console.WriteLine(" [W-eapon]     : " + weaponPrice);
                 Console.WriteLine(" [A-rmor]      : " + armorPrice);

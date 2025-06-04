@@ -195,7 +195,7 @@ namespace MyApp
                     ["kiri"] = 43,
                     ["kanan"] = 61
                 },
-                Encounter = () => Encounter.ChestEncounter()
+                Encounter = () => Encounter.ChestEncounter3()
             },
             [61] = new Room
             {
@@ -252,7 +252,8 @@ namespace MyApp
                 Console.WriteLine("88`Yb   dP__Yb  88``Yb Y8   8P 88`Yb      ``' ");
                 Console.WriteLine("88  Yb dP````Yb 88oodP `YbodP' 88  Yb     (8) ");
                 Console.WriteLine("_____________________________________________\n");
-                Console.WriteLine("                                  " + Program.player.name +"\n");
+                Console.WriteLine("  "+Program.player.name +" - "+ Program.player.currentClass +" | Level : "+ Program.player.level +" | HP: " + Program.player.health);
+                Console.WriteLine("_____________________________________________\n");
                 var currentRoom = map[Program.player.position];
                 Console.WriteLine(currentRoom.Description!);
 

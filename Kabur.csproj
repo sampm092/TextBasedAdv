@@ -10,9 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- Track sounds.wav -->
+    <PackageReference Include="System.Windows.Extensions" Version="9.0.5" />
     <Content Include="sounds\text.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-  </Content>
+    </Content>
   </ItemGroup>
   <ItemGroup>
   <Content Include="Kabur.ico"/>

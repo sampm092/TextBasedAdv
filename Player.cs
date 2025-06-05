@@ -1,6 +1,6 @@
 using System.Diagnostics.Tracing;
 
-namespace MyApp
+namespace Kabur
 {
     [Serializable]
     public class Player

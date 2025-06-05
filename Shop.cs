@@ -1,4 +1,4 @@
-namespace MyApp
+namespace Kabur
 {
     public class Shop
     {

@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-namespace MyApp
+namespace Kabur
 {
     public class Program
     {

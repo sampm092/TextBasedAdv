@@ -1,5 +1,5 @@
 using System.Media;
-namespace MyApp
+namespace Kabur
 {
     public class Function
     {

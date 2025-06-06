@@ -1,5 +1,14 @@
 # Text-based Adventure Game
-Made using C#.
+Made using C#. Story with Indonesian language.
+
+Feature :
+- Save/Load
+- Class
+- SFX
+- Shop and Money
+- Stage & Labyrinth
+- Player stats
+- Leveling system
 
 
 App :

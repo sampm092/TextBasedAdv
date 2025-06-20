@@ -3,6 +3,7 @@ namespace Kabur
 {
     public class Function
     {
+        static SoundPlayer typing;
         public static Random rand = new Random();
         public static void Print(string text, int speed = 40)
         {
@@ -10,14 +11,14 @@ namespace Kabur
 
             if (OperatingSystem.IsWindows()) //checking if window
             {
-                SoundPlayer player = new SoundPlayer(path);
-                player.PlayLooping();
+                // typing = new SoundPlayer(path);
+                // typing.PlayLooping();
                 foreach (char c in text)
                 {
                     Console.Write(c);
                     System.Threading.Thread.Sleep(speed);
                 }
-                player.Stop();
+                // typing.Stop();
             }
             Console.WriteLine();
         }

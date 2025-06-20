@@ -1,8 +1,11 @@
 ﻿using System.Text.Json;
+using System.Media;
+
 namespace Kabur
 {
     public class Program
     {
+        static SoundPlayer song;
         public static Player player = new Player();
         public static bool mainLoop = true;
 
@@ -13,6 +16,9 @@ namespace Kabur
                 Directory.CreateDirectory("saves");
             }
 
+            string soundtrack = Path.Combine(AppContext.BaseDirectory, "sounds", "one.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
+            song = new SoundPlayer(soundtrack);
+            song.PlayLooping();
 
             player = Load(out bool newP);
             if (newP == true) Encounter.FirstEncounter();

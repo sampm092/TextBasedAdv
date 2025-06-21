@@ -18,10 +18,13 @@ namespace Kabur
 
             string soundtrack = Path.Combine(AppContext.BaseDirectory, "sounds", "one.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
             song = new SoundPlayer(soundtrack);
-            song.PlayLooping();
 
             player = Load(out bool newP);
-            if (newP == true) Encounter.FirstEncounter();
+            if (newP==false)
+            {
+                song.PlayLooping();
+            }
+            if (newP == true) { Encounter.FirstEncounter();}
             Stage.Stage1();
 
         }
@@ -84,6 +87,7 @@ namespace Kabur
             }
 
             Console.Clear();
+            song.PlayLooping();
             Function.Print("Kamu, " + p.name + ", menemukan diri terbangun di sebuah ruangan yang tak dikenal.", 15);
             Function.Print("Kamu melihat sekitar yang ternyata dikelilingi oleh tembok batu yang terlihat kokoh ", 15);
             Function.Print("dan sebuah pintu tampak diantaranya.", 15);

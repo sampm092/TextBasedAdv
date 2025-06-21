@@ -6,25 +6,26 @@ namespace Kabur
     public class Program
     {
         static SoundPlayer song;
+        static SoundPlayer into;
         public static Player player = new Player();
         public static bool mainLoop = true;
 
         static void Main(string[] args)
         {
+            string soundtrackStart = Path.Combine(AppContext.BaseDirectory, "sounds", "IntoTheDungeon.wav");
+            into = new SoundPlayer(soundtrackStart);
+            into.PlayLooping();
             if (!Directory.Exists("saves"))
             {
                 Directory.CreateDirectory("saves");
             }
 
-            string soundtrack = Path.Combine(AppContext.BaseDirectory, "sounds", "one.wav"); //https://pixabay.com/sound-effects/medium-text-blip-14855/
+            string soundtrack = Path.Combine(AppContext.BaseDirectory, "sounds", "one.wav");
             song = new SoundPlayer(soundtrack);
 
             player = Load(out bool newP);
-            if (newP==false)
-            {
-                song.PlayLooping();
-            }
-            if (newP == true) { Encounter.FirstEncounter();}
+            song.PlayLooping();
+            if (newP == true) { Encounter.FirstEncounter(); }
             Stage.Stage1();
 
         }

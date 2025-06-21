@@ -12,6 +12,7 @@ namespace Kabur
 
         static void Main(string[] args)
         {
+            Function.Welcome();
             string soundtrackStart = Path.Combine(AppContext.BaseDirectory, "sounds", "IntoTheDungeon.wav");
             into = new SoundPlayer(soundtrackStart);
             into.PlayLooping();

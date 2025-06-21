@@ -97,5 +97,19 @@ namespace Kabur
             }
         }
 
+        public static void Welcome()
+        {
+            Console.Clear();
+            Console.WriteLine("888       888          888                                         ");
+            Console.WriteLine("888   o   888          888                                         ");
+            Console.WriteLine("888  d8b  888          888                                         ");
+            Console.WriteLine("888 d888b 888  .d88b.  888  .d8888b .d88b.  88888b.d88b.   .d88b.  ");
+            Console.WriteLine("888d88888b888 d8P  Y8b 888 d88P`   d88``88b 888 `888 `88b d8P  Y8b ");
+            Console.WriteLine("88888P Y88888 88888888 888 888     888  888 888  888  888 88888888 ");
+            Console.WriteLine("88888P   Y8888 Y8b.    888 Y88b.   Y88..88P 888  888  888 Y8b.     ");
+            Console.WriteLine("888P     Y888  `Y8888  888  `Y8888P `Y88P`  888  888  888  `Y8888  ");
+                        Print(".    .    .    .    .    .    .    .    .    .    .    .    .    . ", 30);
+        }
+
     }
 }

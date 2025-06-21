@@ -25,7 +25,7 @@ namespace Kabur
             song = new SoundPlayer(soundtrack);
 
             player = Load(out bool newP);
-            song.PlayLooping();
+            // song.PlayLooping();
             if (newP == true) { Encounter.FirstEncounter(); }
             Stage.Stage1();
 

@@ -404,7 +404,7 @@ namespace Kabur
                     int pAttack = rand.Next(attackrangbot, attackrangeup) - d;
                     if (pAttack < 0)
                     {
-                        pAttack = 0;
+                        pAttack = 1;
                     }
                     Function.Print("Kamu kehilangan " + pDamageValue + " poin darah dan memberikan luka kepadanya sebanyak " + pAttack + " poin darah", 5);
                     Program.player.health -= pDamageValue;

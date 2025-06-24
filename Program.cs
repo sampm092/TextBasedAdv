@@ -25,7 +25,7 @@ namespace Kabur
             song = new SoundPlayer(soundtrack);
 
             player = Load(out bool newP);
-            // song.PlayLooping();
+            song.PlayLooping();
             if (newP == true) { Encounter.FirstEncounter(); }
             Stage.Stage1();
 
@@ -107,6 +107,7 @@ namespace Kabur
         {
             Save();
             Console.ReadKey();
+            Console.Clear();
             player = Load(out bool newP);
         }
         public static void Save()
@@ -162,7 +163,7 @@ namespace Kabur
                 }
 
 
-                Console.WriteLine("Pilih: (ketik 'create' untuk membuat karakter baru)");
+                Console.WriteLine("Pilih: ('create' = karakter baru | 'exit' = keluar)");
                 string[] data = (Console.ReadLine() ?? string.Empty).Split(":");
                 Console.Clear();
 
@@ -202,6 +203,10 @@ namespace Kabur
                         Player newPlayer = NewStart(idCount);
                         newP = true;
                         return newPlayer;
+                    }
+                    else if (data[0] == "exit")
+                    {
+                         Environment.Exit(0);
                     }
                     else
                     {

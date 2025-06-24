@@ -1,4 +1,6 @@
 using System.Media;
+using System.Diagnostics;
+using System.Reflection;
 namespace Kabur
 {
     public class Function
@@ -108,8 +110,7 @@ namespace Kabur
             Console.WriteLine("88888P Y88888 88888888 888 888     888  888 888  888  888 88888888 ");
             Console.WriteLine("88888P   Y8888 Y8b.    888 Y88b.   Y88..88P 888  888  888 Y8b.     ");
             Console.WriteLine("888P     Y888  `Y8888  888  `Y8888P `Y88P`  888  888  888  `Y8888  ");
-                        Print(".    .    .    .    .    .    .    .    .    .    .    .    .    . ", 30);
+            Print(".    .    .    .    .    .    .    .    .    .    .    .    .    . ", 30);
         }
-
     }
 }

@@ -508,6 +508,7 @@ namespace Kabur
                     Console.WriteLine("~~ GAME OVER ~~");
                     Console.ReadKey();
                     Environment.Exit(0); //exit the program
+
                 }
             }
 

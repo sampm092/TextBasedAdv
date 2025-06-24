@@ -269,6 +269,7 @@ namespace Kabur
                 if (input == "save")
                 {
                     Program.Quit();
+                    continue;
                 }
 
                 if (input == "rest")
@@ -308,7 +309,7 @@ namespace Kabur
                 }
                 else
                 {
-                    Function.Print("Masukkan input sesuai pilihan!");
+                    Function.Print("Sesuaikan pilihan!");
                     Console.Clear();
                 }
             }

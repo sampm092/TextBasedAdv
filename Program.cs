@@ -107,7 +107,7 @@ namespace Kabur
         {
             Save();
             Console.ReadKey();
-            Environment.Exit(0);
+            player = Load(out bool newP);
         }
         public static void Save()
         {

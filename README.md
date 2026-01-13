@@ -1,15 +1,22 @@
 # Text-based Adventure Game
-Made using C#. Story with Indonesian language.
+Story written in Bahasa Indonesia.
 
-Feature :
+Programming language : C#,  .NET 9.0
+Game soundtrack tools : LMMS
+Programming tools: VS Code, GIT
+
+Feature:
 - Save/Load
-- Class
-- SFX
-- Shop and Money
-- Stage & Labyrinth
-- Player stats
-- Leveling system
+- Simple battle system with attack, defense, run, and potion
+- Shop to increase stats using coins obtained from enemies
+- Job/Class system (3 Jobs)
+- Leveling/Exp system
+- Stage and room with total of 12 Rooms
+- Boss at the end of game
 
 
 App :
-[Kabur.zip](https://github.com/user-attachments/files/20625566/Kabur.zip)
+[Kabur.zip](https://github.com/user-attachments/files/20896907/Kabur.zip)
+
+Short Video Documentation:
+https://youtu.be/RNvMdppeQ7Q
